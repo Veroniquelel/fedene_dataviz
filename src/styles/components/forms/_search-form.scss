@@ -1,0 +1,106 @@
+$app-search-btn-width: 40px;
+$app-search-input-padding-offset: 40px;
+
+.app-search-form {
+  position: relative;
+
+  &.has-primary-border {
+    .form-control {
+      border-color: $primary;
+    }
+  }
+  &.has-black-600-border {
+    .form-control {
+      border-color: $black-600;
+    }
+  }
+
+  .form-control {
+    border-color: transparent;
+    padding-left: $app-search-input-padding-offset;
+  }
+  .btn[type='submit'] {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $input-height;
+    width: $app-search-btn-width;
+    border: 1px solid transparent $imp;
+    box-shadow: none $imp;
+    border-left: 0 $imp;
+    font-size: 1rem $imp;
+    background-color: transparent;
+    color: $body-color;
+    @include border-end-radius($input-border-radius);
+    @include border-start-radius(0);
+
+    &:hover {
+      color: $primary;
+    }
+
+    i {
+      margin-left: 6px;
+    }
+  }
+
+  .form-group-input {
+    width: 100%;
+    position: relative;
+  }
+
+  .search-area-clear-btn {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: $input-height;
+    width: $app-search-btn-width;
+    padding: 0;
+    border-color: transparent $imp;
+    background-image: svg-url('xmark-primary.svg');
+    background-position: center;
+    background-size: 39%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: none $imp;
+
+    &:hover {
+      background-image: svg-url('xmark.svg');
+    }
+  }
+
+  &.search-input-has-value {
+    .search-area-clear-btn {
+      display: block;
+    }
+    .form-control {
+      padding-right: $app-search-input-padding-offset;
+    }
+  }
+}
+
+.search-form-medium-width {
+  width: 100%;
+  max-width: 516px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.resources-search-form {
+  .form-control {
+    &::placeholder {
+      color: #98a2b3;
+    }
+  }
+}
+.search-form-next-button-group {
+  gap: 0.5rem 1rem;
+}
+
+.form-control-other-pages {
+  max-width: 470px;
+  width: 100%;
+}

@@ -1,0 +1,93 @@
+$issue-border-left-radius: 55px;
+
+.issues-headline-slide {
+  height: 320px;
+}
+.issue-card {
+  position: relative;
+  justify-content: flex-end;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: $border-radius;
+  overflow: hidden;
+  transition: 0.15s;
+
+  &:hover {
+    border-top-left-radius: $issue-border-left-radius;
+
+    .issue-card-excerpt-wr {
+      height: 100%;
+      bottom: 0;
+    }
+    .issue-card-title-wr {
+      opacity: 0;
+    }
+    // .ice-more {
+    //     color: $primary;
+    // }
+  }
+}
+
+.issue-blur-item {
+  border-radius: $issue-border-left-radius 0px $border-radius $border-radius;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 56, 40, 0.25) 0%,
+    rgba(18, 56, 40, 0.5) 32.81%,
+    rgba(18, 56, 40, 0.5) 100%
+  );
+  backdrop-filter: blur(8px);
+}
+.issue-brand-item {
+  background: escape-svg($feden-translate) 0 0 no-repeat;
+}
+
+.issue-card-title-wr {
+  display: inline-flex;
+  opacity: 1;
+  transition: 0.35s;
+}
+.issue-card-title {
+  display: flex;
+  padding: 3rem 1rem 3rem 3.75rem;
+  font-weight: 600;
+  font-size: large;
+  color: #fff;
+
+  a {
+    margin-right: 3rem;
+    color: #fff;
+    text-decoration: none $imp;
+  }
+
+  i {
+    align-self: flex-end;
+  }
+}
+.issue-card-excerpt-wr {
+  position: absolute;
+  bottom: -200%;
+  left: 0;
+  right: 0;
+  height: 0;
+  color: #fff;
+  transition: 0.35s;
+}
+.ice-content {
+  display: flex;
+  @include text-overflow-vertical(10);
+  padding: 3rem 3rem 0 3.75rem;
+  margin-bottom: 1rem;
+}
+.ice-more {
+  display: block;
+  text-align: right;
+  text-decoration: none $imp;
+  color: #fff $imp;
+  //transition: .35s;
+}
+.issue-card-excerpt {
+  height: 100%;
+  padding: 0 1rem 1rem 0;
+}

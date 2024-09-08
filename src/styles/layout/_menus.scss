@@ -1,0 +1,109 @@
+.is-mega-fedene-menu {
+  .main-nav & {
+    .mfm-content-col {
+      padding-right: 1rem;
+      padding-left: 2rem;
+    }
+    .mfm-padding-y {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .mfm-headline {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .mfm-logos-col {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -1rem;
+        background: $dark;
+      }
+    }
+    .mfm-logos {
+      gap: 1rem;
+    }
+  }
+}
+
+.mfm-headline-col {
+  background-color: $green-25;
+
+  i {
+    transition: 0.35s;
+  }
+
+  &:hover {
+    i {
+      color: $primary;
+    }
+  }
+}
+.mfm-headline-desc {
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+.mfm-headline-arrow {
+  position: relative;
+  top: 1px;
+}
+
+.mfm-headline-title {
+  a {
+    transition: 0.35s;
+  }
+}
+.mfm-headline-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.aside-mfm-logos {
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #cfcfcf;
+
+  .mfm-logos {
+    gap: 1rem;
+    flex-wrap: wrap $imp;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .mfm-h-100 {
+    height: 100%;
+  }
+}
+@media (min-width: $screen-xl) {
+  .is-mega-fedene-menu {
+    .main-nav & {
+      .mfm-logos {
+        padding-left: 1rem;
+        gap: 1.5rem 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-lg-max) {
+  .mfm-headline-img {
+    max-width: 100px;
+    padding-right: 0.75rem;
+  }
+
+  .is-mega-fedene-menu {
+    .main-nav & {
+      .mfm-content-col {
+        padding-top: 1rem;
+      }
+    }
+  }
+}

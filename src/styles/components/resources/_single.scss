@@ -1,0 +1,19 @@
+.src-wr {
+  padding: 1rem;
+  border-radius: 0px 0px 83px 0px;
+  background: $green-25;
+}
+
+.file-download-form-modal {
+  .modal-dialog {
+    width: calc(100% - (var(--wp--custom--container-x-padding) * 2));
+    max-width: 680px;
+  }
+  .modal-title {
+    line-height: 1.2;
+  }
+  div[data-wsf-message] .alert {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+}

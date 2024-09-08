@@ -1,0 +1,22 @@
+.modal {
+  --bs-modal-border-radius: 0;
+}
+
+.modal-header {
+  align-items: flex-start;
+
+  .btn-close {
+    padding: 0.5rem;
+    margin-top: -0.15rem;
+
+    &:last-child {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .modal {
+    --bs-modal-header-padding: 1.75rem;
+  }
+}

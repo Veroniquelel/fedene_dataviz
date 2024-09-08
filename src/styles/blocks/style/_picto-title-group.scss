@@ -1,0 +1,18 @@
+.is-picto-title-group {
+  .wp-block-group-is-layout-flex {
+    gap: 0 0.25rem $imp;
+    margin-bottom: 0.35rem $imp;
+
+    .wp-block-image {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 0;
+    }
+    p {
+      line-height: 1.1;
+    }
+  }
+  > p {
+    padding-left: 1.2rem;
+  }
+}

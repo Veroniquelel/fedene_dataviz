@@ -1,0 +1,14 @@
+//== Global
+@import 'general';
+
+//== Gutenberg blocks styles
+@import 'style/all';
+
+//== Gutenberg default blocks
+@import 'core/all';
+
+//== Theme custom Gutenberg blocks
+@import 'custom/all';
+
+//== ACF blocks
+@import 'acf/all';

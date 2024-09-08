@@ -1,0 +1,146 @@
+#footer {
+  padding: clamp(2rem, 0.6197rem + 3.7559vw, 4rem) 0 0;
+  background: $body-bg;
+  border-top: 3px solid $secondary;
+
+  a {
+    font-weight: 400;
+  }
+}
+
+.sup-footer {
+  a {
+    text-decoration: none;
+    transition: 0.35s;
+  }
+}
+.sub-footer {
+  padding: 1rem 0;
+  font-size: rem(12px);
+}
+
+.ft-copyright {
+}
+.ftc-webexpr {
+  img {
+    filter: brightness(0%);
+  }
+}
+
+.ft-brand-desc {
+  font-weight: 400;
+
+  .wp-block-group & {
+    font-weight: 600;
+  }
+}
+
+.ftba-icon {
+  min-width: 20px;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: $primary;
+}
+.ftb-link {
+}
+.ftb-name {
+}
+.ftb-address {
+}
+.ftb-phone {
+}
+.ftba-content {
+  line-height: 1.2;
+
+  a {
+    text-decoration: none;
+  }
+}
+.ftb-email {
+  .ftba-content {
+    font-size: 0.85rem;
+  }
+}
+.ftr-links {
+  line-height: 1.2;
+}
+
+.ft-classic-nav {
+  li {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+
+    &.menu-item:not(.is-menu-section) {
+      font-size: 0.85rem;
+    }
+  }
+}
+.menu-nav-title,
+.is-menu-bold a {
+  font-weight: 600 $imp;
+}
+.menu-nav-title,
+.is-menu-bold a:not(:hover) {
+  color: $black-600;
+}
+
+.menu-nav-title {
+  margin-bottom: 0.75rem;
+}
+.is-menu-section {
+  margin-top: 1.5rem;
+}
+
+.ft-nav-3 {
+  .mnt-empty {
+    display: none;
+  }
+  .btn {
+    min-width: 182px;
+  }
+}
+
+.ft-newsletter-col {
+  .newsletter-submit {
+    width: 100%;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .ft-brand-img {
+    width: 260px;
+  }
+}
+@media (min-width: $screen-xl) {
+  .ft-brand-desc {
+    min-width: 236px;
+  }
+}
+
+@media (max-width: $screen-lg-max) {
+  .brand-f-logo {
+    width: 180px;
+  }
+}
+@media (max-width: $screen-md-max) {
+  .sup-footer {
+  }
+  .sub-footer {
+    //text-align: center;
+  }
+  .ft-copyright {
+    margin-bottom: 0.5rem;
+    justify-content: center;
+  }
+}
+@media (max-width: $screen-sm-max) {
+  .ftba-icon {
+    display: none;
+  }
+  .ftba-content {
+    font-size: 0.85rem;
+  }
+  .sub-footer {
+    padding-bottom: 0;
+  }
+}

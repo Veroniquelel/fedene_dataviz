@@ -1,0 +1,38 @@
+.we-widget {
+  margin-bottom: clamp(
+    1.25rem,
+    0.3493rem + 3.2877vw,
+    2.5rem
+  ); // 1.25 to 2.5rem (560/1290)
+}
+
+.news-archive-years {
+  gap: 0.25rem 0;
+
+  li {
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+  a {
+    text-decoration: none $imp;
+    font-weight: 400;
+
+    &[aria-current='page'] {
+      color: $primary;
+    }
+  }
+}
+
+.news-archive-btns {
+  gap: 0.25rem 0;
+
+  .btn {
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .news-archive-grid {
+    --bs-gap: 1.5rem 2.5rem;
+  }
+}

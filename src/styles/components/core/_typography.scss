@@ -1,0 +1,60 @@
+mark,
+.mark {
+  padding: 0;
+}
+
+a:where(:not(.wp-element-button)):hover {
+  //color: $link-hover-color $imp;
+}
+
+h1,
+.h1 {
+  font-weight: 800;
+}
+.has-h-1-font-size,
+.has-h-2-font-size,
+.has-h-3-font-size,
+.has-h-4-font-size,
+.has-h-5-font-size,
+.has-h-6-font-size {
+  font-weight: $headings-font-weight;
+}
+
+.text-heading-color {
+  color: $headings-color;
+}
+
+.underlined-title,
+.is-style-underlined-title {
+  @include underlined-title();
+}
+
+.fw-bolder-xl {
+  font-weight: 800;
+}
+
+.text-hover-primary {
+  &:hover {
+    color: $primary;
+  }
+}
+
+.has-link-no-underlined {
+  a {
+    text-decoration: none;
+  }
+}
+.no-underlined-link {
+  text-decoration: none $imp;
+}
+.has-link-hover-primary {
+  a:hover {
+    color: $primary;
+  }
+}
+
+.main-container {
+  li {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,20 @@
+.search-result-item {
+  gap: var(--wp--preset--spacing--50);
+  border-bottom-right-radius: 2rem;
+  border: 1px solid $green-25;
+  margin: var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--40);
+  padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50)
+    var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+  transition: 0.5s;
+
+  &:hover {
+    box-shadow: 0 12px 16px 0 rgba(16, 24, 40, 0.08);
+    //background-color: #fff $imp;
+    border-color: $primary;
+    color: var(--wp--preset--color--primary);
+  }
+}
+
+.search-result-content {
+  gap: var(--wp--preset--spacing--30);
+}

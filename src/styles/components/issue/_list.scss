@@ -1,0 +1,35 @@
+.is-block-issues-headline-list {
+  position: relative;
+  z-index: 1;
+  top: -30px;
+  margin-top: 0;
+}
+
+.hero-banner-homepage.wp-block-cover {
+  .wp-block-cover__inner-container {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .hero-banner-homepage.wp-block-cover {
+    .wp-block-cover__inner-container {
+      margin-bottom: 2rem;
+    }
+  }
+  .is-block-issues-headline-list {
+    top: -50px;
+  }
+}
+@media (min-width: $screen-xl) {
+  .is-block-issues-headline-list {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (max-width: $screen-lg-max) {
+  .hero-banner-homepage.wp-block-cover {
+    min-height: 280px $imp;
+  }
+}

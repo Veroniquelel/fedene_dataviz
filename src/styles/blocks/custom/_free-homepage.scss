@@ -1,0 +1,52 @@
+.is-group-free-homepage {
+  position: relative;
+
+  .wp-block-column {
+    &:last-child {
+      position: absolute;
+      // top: 50%;
+      // transform: translateY(-50%);
+      bottom: 14%;
+      right: 0;
+      max-width: 720px;
+    }
+  }
+}
+
+@media (min-width: $screen-wp-md) {
+  .is-group-free-homepage {
+    .wp-block-column {
+      &:last-child {
+        .wp-block-group {
+          padding: 4rem 2.5rem $imp;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .is-group-free-homepage {
+    .wp-block-column {
+      &:first-child {
+        position: relative;
+      }
+
+      &:last-child {
+        position: static;
+        left: 1rem;
+        right: 1rem;
+        width: calc(100% - 2rem);
+      }
+    }
+  }
+}
+@media (max-width: $screen-md-max) {
+  .is-group-free-homepage {
+    .wp-block-column {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}

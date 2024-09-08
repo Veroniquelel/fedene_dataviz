@@ -1,0 +1,40 @@
+.members-filter-area {
+  gap: 1rem;
+
+  .filter-by {
+    max-width: 198px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+.members-archive-content {
+  .informations-area[data-status='loading'] {
+    justify-content: center;
+  }
+}
+
+@media (max-width: $screen-lg-max) {
+  .members-filter-area {
+    .filter-by-label {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+@media (max-width: $screen-md-max) {
+  .members-filter-area {
+    .filter-by[data-taxonomy='order'] {
+      max-width: 100px;
+    }
+  }
+}
+@media (max-width: $screen-sm-max) {
+  .members-filter-area {
+    .filter-by {
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+    .filter-by[data-taxonomy='order'] {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.we-scrollbar {
+  scrollbar-width: thin;
+  overflow: auto;
+  //overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    height: $scrollbar-height;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+    border-radius: $scrollbar-track-border-radius;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb-color;
+    border-radius: $scrollbar-thumb-border-radius;
+  }
+}

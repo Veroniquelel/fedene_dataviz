@@ -1,0 +1,19 @@
+//== Gutenberg back office stylesheet
+
+@import 'base/variables';
+@import 'base/mixins/all';
+
+@import 'librairies/bootstrap/functions';
+@import 'librairies/bootstrap/variables';
+@import 'librairies/bootstrap/maps';
+@import 'librairies/bootstrap/mixins';
+// @import 'librairies/bootstrap/utilities';
+// @import 'librairies/bootstrap/grid';
+// @import 'librairies/bootstrap/helpers';
+// @import 'librairies/bootstrap/accordion';
+// @import 'librairies/bootstrap/nav';
+
+//@import 'components/core/site-colors'; // Colors palettes
+@import 'blocks/editor';
+@import 'blocks/style/all'; // Custom style (buttons, general, etc ..)
+@import 'blocks/core/quote'; // Gutenberg blocks

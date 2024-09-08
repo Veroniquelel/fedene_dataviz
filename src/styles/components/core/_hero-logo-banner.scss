@@ -1,0 +1,40 @@
+.hero-logo-banner {
+  --we-hero-logo-bg-color: #{$green-25};
+  --we-hero-logo-color: #{$headings-color};
+  background-color: var(--we-hero-logo-bg-color);
+
+  .container {
+    max-width: 1190px;
+  }
+  h1 {
+    color: var(--we-hero-logo-color);
+  }
+}
+.hlb-img {
+  max-width: 500px;
+  mix-blend-mode: multiply;
+}
+
+@media (min-width: $screen-md) {
+  .hlb-img-wr {
+    position: relative;
+    padding: 0.75rem 3.1rem 0.75rem 0;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: var(--we-hero-logo-color);
+      top: 0;
+      right: 1.25rem;
+      bottom: 0;
+      width: 4px;
+    }
+  }
+}
+
+@media (max-width: $screen-xl-max) {
+  .hlb-img {
+    max-width: 300px;
+  }
+}

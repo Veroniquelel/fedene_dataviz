@@ -1,0 +1,38 @@
+@import '../base/settings/fonts';
+
+.editor-styles-wrapper {
+  h1.editor-post-title {
+    font-size: 2em;
+    color: #000;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-weight: 800;
+  }
+
+  .wp-element-button {
+    @include make-button-important();
+  }
+
+  .is-style-btn-primary .wp-element-button {
+    @include make-primary-button();
+  }
+  .is-style-btn-secondary .wp-element-button {
+    @include make-secondary-button();
+  }
+  .is-style-btn-outline-primary .wp-element-button {
+    @include make-outline-primary-button();
+  }
+  .is-style-btn-outline-secondary .wp-element-button {
+    @include make-outline-secondary-button();
+  }
+  .has-h-1-font-size,
+  .has-h-2-font-size,
+  .has-h-3-font-size,
+  .has-h-4-font-size,
+  .has-h-5-font-size,
+  .has-h-6-font-size {
+    font-weight: var(--wp--custom--headings-font-weight);
+  }
+}

@@ -1,0 +1,16 @@
+.breadcrumb-group {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .wp-block-cover .has-background-dim ~ div & {
+    &,
+    a {
+      color: #fff;
+    }
+  }
+}

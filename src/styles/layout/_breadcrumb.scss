@@ -1,0 +1,26 @@
+.breadcrumb-item {
+  margin-bottom: 0 $imp;
+  font-weight: 600;
+
+  a {
+    text-decoration: none $imp;
+  }
+
+  + .breadcrumb-item {
+    &:before {
+      position: relative;
+      top: 1px;
+      font-family: $ff-fa;
+      font-size: 0.75rem;
+    }
+  }
+}
+.is-breadcrumb-after-cover {
+  position: absolute;
+}
+
+.nav-breadcrumb-group {
+  + .wp-block-group {
+    padding-top: 0 $imp;
+  }
+}

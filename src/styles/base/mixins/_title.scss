@@ -1,0 +1,7 @@
+@mixin underlined-title($color: $headings-color) {
+  padding-bottom: 8px;
+  border-bottom: 1px solid $color;
+}
+@mixin underlined-title-border($color) {
+  border-color: $color;
+}

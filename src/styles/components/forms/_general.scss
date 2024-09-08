@@ -1,0 +1,11 @@
+div[data-wsf-message] {
+  text-align: center;
+  font-weight: 600;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+  .alert-success {
+    color: $primary;
+  }
+}

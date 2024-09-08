@@ -1,0 +1,19 @@
+.social-nav {
+  font-size: 1.6rem;
+
+  a {
+    transition: 0.35s;
+  }
+
+  &.social-nav-header {
+    a {
+      color: $primary;
+
+      &:hover {
+        color: $body-color;
+      }
+    }
+  }
+  &.social-nav-footer {
+  }
+}

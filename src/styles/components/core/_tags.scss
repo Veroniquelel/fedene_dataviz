@@ -1,0 +1,27 @@
+.btn-tag {
+  border-radius: $btn-tag-border-radius;
+  border: $btn-tag-border-width solid $btn-tag-border-color;
+  color: $btn-tag-color;
+  font-weight: $btn-tag-font-weight;
+  overflow-wrap: anywhere;
+
+  &:not(.btn-tag-transparent) {
+    background-color: $green-25;
+  }
+  &.btn-tag-transparent {
+    background-color: transparent;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background-color: $btn-tag-hover-bg-color;
+      border-color: $btn-tag-hover-border-color;
+      color: $btn-tag-hover-color;
+    }
+  }
+  @media (hover: none) {
+    border: $btn-tag-border-width solid $btn-tag-border-color $imp;
+    color: $btn-tag-color $imp;
+  }
+}

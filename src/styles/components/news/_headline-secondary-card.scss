@@ -1,0 +1,38 @@
+.news-headline-secondary-card {
+  &:hover {
+    .nhsc-arrow {
+      //color: $primary;
+    }
+  }
+}
+
+.nhsc-img-wr {
+  margin-bottom: 0.7rem;
+
+  img {
+    width: 46px;
+    height: 46px;
+  }
+}
+.nhsc-meta {
+  padding-bottom: 1rem;
+}
+.nhsc-title {
+  word-wrap: break-word;
+  font-weight: 400;
+}
+.nhsc-link {
+  text-decoration: none $imp;
+  transition: 0.5s;
+}
+.nhsc-title {
+  line-height: 1.1;
+}
+.nhsc-arrow {
+  margin-top: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.nhsc-excerpt {
+  @include text-overflow-vertical(3);
+}

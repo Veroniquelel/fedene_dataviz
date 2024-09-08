@@ -1,0 +1,24 @@
+.is-style-underlined-title {
+  @include underlined-title();
+}
+
+.has-brand-blue-color {
+  &.is-style-underlined-title {
+    @include underlined-title-border($brand-blue);
+  }
+}
+.has-brand-orange-color {
+  &.is-style-underlined-title {
+    @include underlined-title-border($brand-orange);
+  }
+}
+.has-brand-green-color {
+  &.is-style-underlined-title {
+    @include underlined-title-border($brand-green);
+  }
+}
+.has-brand-red-color {
+  &.is-style-underlined-title {
+    @include underlined-title-border($brand-red);
+  }
+}

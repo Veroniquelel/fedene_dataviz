@@ -1,0 +1,20 @@
+.wp-block-pullquote,
+.wp-block-quote {
+  cite {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+
+    &:before {
+      content: '— ';
+      margin-right: 0.1rem;
+    }
+  }
+}
+.wp-block-pullquote {
+  text-align: left;
+
+  blockquote {
+    margin: 0;
+  }
+}

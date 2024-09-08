@@ -1,0 +1,72 @@
+.sib-alert-message-success {
+  width: 100% $imp;
+  text-align: center;
+  padding: 0.75rem 1rem $imp;
+  background-color: #1c9331 $imp;
+  border-color: $success $imp;
+  color: #fff $imp;
+  font-size: 0.85rem;
+  border-radius: 0 $imp;
+}
+.sib_loader {
+  margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
+  height: 30px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: 50% svg-url('loaders/three-dots.svg') no-repeat;
+    background-size: 30px;
+  }
+
+  img {
+    display: none;
+  }
+}
+
+.fedene-info-block {
+  .wp-block-heading {
+    margin-top: 1.75rem;
+  }
+  form {
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.sib-terms-area {
+  margin-top: 0.5rem;
+  line-height: 1.2;
+  font-size: 0.85rem;
+
+  label {
+    position: relative;
+    top: 3px;
+    font-weight: 400;
+  }
+}
+
+.br-form-widget {
+  form {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .fedene-info-block {
+    p {
+      max-width: 240px;
+      margin-left: 0 $imp;
+      margin-right: 0 $imp;
+    }
+  }
+}
