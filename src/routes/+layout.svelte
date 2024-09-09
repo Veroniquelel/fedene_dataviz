@@ -12,11 +12,11 @@
       <div class="container position-relative">
         <div class="header-wr d-flex align-items-center">
           <div class="brand-header me-md-5">
-            <a class="navbar-brand" href="https://fedene.fr">
+            <a class="navbar-brand" href="/">
               <img
                 class="brand-h-logo img-fluid"
                 loading="eager"
-                src="https://fedene.fr/wp-content/uploads/2023/11/logo-header.svg"
+                src="logo-header.svg"
                 alt="Feden"
               />
             </a>
@@ -38,19 +38,9 @@
                 id="mn-menu-item-103"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children is-mega-menu is-mega-fedene-menu dropdown menu-item-103 nav-item"
               >
-                <a
-                  href="#"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  class="dropdown-toggle nav-link"
-                  id="66ddad0558ab1-menu-item-dropdown-103"
-                  data-bs-toggle="dropdown"
-                >
-                  <span itemprop="name"><span>La Fedene</span></span>
-                </a>
                 <div
                   class="mega-dropdown p-0 dropdown-menu"
-                  aria-labelledby="66ddad0558ab1-menu-item-dropdown-103"
+                  aria-labelledby="66de95d8cdd50-menu-item-dropdown-103"
                   role="menu"
                 >
                   <div class="grid g-0">
@@ -66,17 +56,6 @@
                             src="https://fedene.fr/wp-content/uploads/2024/01/Group-447-2.png"
                             alt=""
                           />
-                        </div>
-                        <div class="mfm-headline-content">
-                          <div
-                            class="mfm-headline-title fw-semibold text-heading-color has-link-no-underlined"
-                          >
-                            <a
-                              href="https://fedene.fr/les-evenements-2024/"
-                              class="mfm-headline-link stretched-link"
-                              >Retrouvez tous les évènements de 2024</a
-                            >
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -236,17 +215,19 @@
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-102 nav-item"
               >
                 <a
-                  href="#"
+                  href="/chiffres"
                   aria-haspopup="true"
                   aria-expanded="false"
                   class="dropdown-toggle nav-link"
-                  id="66ddad055944f-menu-item-dropdown-102"
+                  id="66de95d8ceabb-menu-item-dropdown-102"
                   data-bs-toggle="dropdown"
-                  ><span itemprop="name"><span>Missions</span></span></a
+                  ><span itemprop="name"
+                    ><span>Chiffres clés France entière</span></span
+                  ></a
                 >
                 <ul
                   class="dropdown-menu"
-                  aria-labelledby="66ddad055944f-menu-item-dropdown-102"
+                  aria-labelledby="66de95d8ceabb-menu-item-dropdown-102"
                 >
                   <li
                     id="mn-menu-item-1042"
@@ -300,168 +281,76 @@
                       ></a
                     >
                   </li>
-                </ul>
-              </li>
-              <li
-                id="mn-menu-item-1045"
-                class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-1045 nav-item"
-              >
-                <a
-                  itemprop="url"
-                  href="https://fedene.fr/mission/valorisation-energetique-des-dechets/"
-                  class="dropdown-item"
-                  ><span itemprop="name"
-                    ><span>Valorisation énergétique des déchets</span></span
-                  ></a
-                >
-              </li>
-              <li
-                id="mn-menu-item-2389"
-                class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-2389 nav-item"
-              >
-                <a
-                  itemprop="url"
-                  href="https://fedene.fr/mission/renouvalblesetrecup/"
-                  class="dropdown-item"
-                  ><span itemprop="name"
-                    ><span>Énergies renouvelables et de récupération</span
-                    ></span
-                  ></a
-                >
-              </li>
-              <li
-                id="mn-menu-item-1046"
-                class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-1046 nav-item"
-              >
-                <a
-                  itemprop="url"
-                  href="https://fedene.fr/mission/solutions-numeriques/"
-                  class="dropdown-item"
-                  ><span itemprop="name"><span>Solutions numériques</span></span
-                  ></a
-                >
-              </li>
-              <li
-                id="mn-menu-item-1669"
-                class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-1669 nav-item"
-              >
-                <a
-                  itemprop="url"
-                  href="https://fedene.fr/mission/innovations/"
-                  class="dropdown-item"
-                  ><span itemprop="name"><span>Innovations</span></span></a
-                >
-              </li>
-            </ul>
-
-            <li
-              id="mn-menu-item-104"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104 nav-item"
-            >
-              <a
-                itemprop="url"
-                href="https://fedene.fr/actualites/"
-                class="nav-link"
-                ><span itemprop="name"><span>Actualités</span></span></a
-              >
-            </li>
-            <li
-              id="mn-menu-item-105"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105 nav-item"
-            >
-              <a
-                itemprop="url"
-                href="https://fedene.fr/ressources/"
-                class="nav-link"
-                ><span itemprop="name"><span>Ressources</span></span></a
-              >
-            </li>
-          </nav>
-          <div class="d-flex align-items-center ms-auto">
-            <nav class="navbar navbar-light ms-auto">
-              <div
-                class="social-nav social-nav-header d-none d-xl-block me-xl-4 pe-xl-3"
-              >
-                <div class="social-nav-list list-inline" role="tablist">
-                  <div class="list-inline-item" role="tab">
-                    <a
-                      href="https://fr.linkedin.com/company/fedene"
-                      title=""
-                      aria-label="Suivez-nous"
-                      target="_blank"
-                    >
-                      <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                  <div class="list-inline-item" role="tab">
-                    <a
-                      href="https://twitter.com/_FEDENE_"
-                      title=""
-                      aria-label="Suivez-nous"
-                      target="_blank"
-                    >
-                      <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                  <div class="list-inline-item" role="tab">
-                    <a
-                      href="https://www.youtube.com/channel/UCiZp-mfl0aYTWoUUlsCYBQw"
-                      title=""
-                      aria-label="Suivez-nous"
-                      target="_blank"
-                    >
-                      <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="d-none d-xl-block">
-                <ul
-                  id="action-nav-66ddad055a458"
-                  class="nav navbar-nav flex-row main-aside-nav"
-                  itemscope=""
-                  itemtype="http://www.schema.org/SiteNavigationElement"
-                >
                   <li
-                    id="an6-menu-item-109"
-                    class="is-menu-underline menu-item menu-item-type-post_type menu-item-object-page menu-item-109 nav-item"
+                    id="mn-menu-item-1045"
+                    class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-1045 nav-item"
                   >
                     <a
                       itemprop="url"
-                      href="https://fedene.fr/devenir-adherent/"
-                      class="nav-link"
-                      ><span itemprop="name"><span>Adhérer</span></span></a
-                    >
-                  </li>
-                  <li
-                    id="an6-menu-item-110"
-                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110 nav-item"
-                  >
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      itemprop="url"
-                      href="https://xrm.eudonet.com/specif/EUDO_06209/Extranet/Connexion.aspx"
-                      class="btn btn-outline-primary"
+                      href="https://fedene.fr/mission/valorisation-energetique-des-dechets/"
+                      class="dropdown-item"
                       ><span itemprop="name"
-                        ><span>Extranet adhérents</span></span
+                        ><span>Valorisation énergétique des déchets</span></span
                       ></a
                     >
                   </li>
                   <li
-                    id="an6-menu-item-111"
-                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-111 nav-item"
+                    id="mn-menu-item-2389"
+                    class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-2389 nav-item"
                   >
                     <a
                       itemprop="url"
-                      href="https://fedene.fr/contact/"
-                      class="btn btn-primary"
-                      ><span itemprop="name"><span>Contact</span></span></a
+                      href="https://fedene.fr/mission/renouvalblesetrecup/"
+                      class="dropdown-item"
+                      ><span itemprop="name"
+                        ><span>Énergies renouvelables et de récupération</span
+                        ></span
+                      ></a
+                    >
+                  </li>
+                  <li
+                    id="mn-menu-item-1046"
+                    class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-1046 nav-item"
+                  >
+                    <a
+                      itemprop="url"
+                      href="https://fedene.fr/mission/solutions-numeriques/"
+                      class="dropdown-item"
+                      ><span itemprop="name"
+                        ><span>Solutions numériques</span></span
+                      ></a
+                    >
+                  </li>
+                  <li
+                    id="mn-menu-item-1669"
+                    class="menu-item menu-item-type-post_type menu-item-object-mission menu-item-1669 nav-item"
+                  >
+                    <a
+                      itemprop="url"
+                      href="https://fedene.fr/mission/innovations/"
+                      class="dropdown-item"
+                      ><span itemprop="name"><span>Innovations</span></span></a
                     >
                   </li>
                 </ul>
-              </div>
-            </nav>
+              </li>
+              <li
+                id="mn-menu-item-104"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104 nav-item"
+              >
+                <a
+                  itemprop="url"
+                  href="https://fedene.fr/actualites/"
+                  class="nav-link"
+                  ><span itemprop="name"
+                    ><span>Chiffres clés par région</span></span
+                  ></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="d-flex align-items-center ms-auto">
+            <nav class="navbar navbar-light ms-auto"></nav>
             <div class="aside-nav-wr d-xl-none ms-3">
               <button
                 class="aside-menu-toggler btn"
