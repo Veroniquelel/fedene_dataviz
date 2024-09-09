@@ -12,3 +12,12 @@
 @import 'blocks/all'; // Gutenberg blocks
 
 @import 'pages/all';
+
+body {
+    color: black;
+}
+
+h1 {
+    font-size: 2rem; /* Taille de police par défaut */
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem); /* Taille responsive */
+}

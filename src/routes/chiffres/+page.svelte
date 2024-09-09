@@ -18,20 +18,6 @@
 </script>
 
 <section>
-  <div class="hero">
-    <h1>The Datasaurus Dozen Scrollytelling Example</h1>
-    <h2>
-      By <a href="https://vis.social/@seblammers" target="_blank">Sebastian</a
-      ><br />
-
-      Based on
-      <a
-        href="https://svelte.dev/repl/82181dc9c8c04053a7ebabd03c654d1d?version=3.44.3"
-        target="blank">this REPL</a
-      >
-      by <a href="https://twitter.com/CL_Rothschild" target="_blank">Connor</a>
-    </h2>
-  </div>
   <div class="section-container">
     <div class="steps-container">
       <Scrolly bind:value>
@@ -64,7 +50,7 @@
   }
 
   .hero {
-    height: 60vh;
+    height: 100%;
     display: flex;
     place-items: center;
     flex-direction: column;
