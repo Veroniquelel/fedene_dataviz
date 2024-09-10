@@ -18,5 +18,10 @@ export const data = {
             { foo: 2.5, r: 27, color: "#F8A5A5",  reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 27 TWh" },
             { foo: 1.2, r: 19, color: "#58D0AC" , reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 19 TWh" },
         ],
-    }
+    },
+    taux_en_R_R: [
+        { chiffre: 37.6, label: 'Total taux d’EnR&R en 2012' },
+        { chiffre: 66.5, label: 'Total taux d’EnR&R en 2022' },
+        { chiffre: 75, label: 'Total taux d’EnR&R en 2030' },
+    ]
 }

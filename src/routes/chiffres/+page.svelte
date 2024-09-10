@@ -11,7 +11,7 @@
   import { data } from '$lib/data/data';
   import { tweened } from 'svelte/motion';
   import DatavizPartDesReseaux from './dataviz_part_des_reseaux.svelte';
-  import datavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
+  import Donut from './donut.svelte';
   import DatavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
 
   /* 
@@ -44,6 +44,10 @@
    * @type {number}
    */
   let currentStep2;
+  /**
+   * @type {number}
+   */
+  let currentStep3;
   const steps = [
     data.part_des_reseaux_de_chaleur.taux_en_r_r_energie_totale,
     data.part_des_reseaux_de_chaleur.taux_en_r_r_chaleur_totale,
@@ -52,6 +56,13 @@
   ];
 
   const steps2 = ['<p>Step 3.</p>'];
+
+  const steps3 = [
+    data.taux_en_R_R[0].label,
+    data.taux_en_R_R[1].label,
+    data.taux_en_R_R[2].label,
+    '',
+  ];
 </script>
 
 <section>
@@ -74,7 +85,7 @@
   <Scrolly bind:value={currentStep}>
     {#each steps as text, i}
       <div class="step" class:active={currentStep === i}>
-        <div class="step-content">
+        <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
           {@html text}
         </div>
       </div>
@@ -83,11 +94,25 @@
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
 
   <DatavizReseauxChaleurFroid {currentStep2} />
+
+  <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
+  <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
+  <h2
+    class="sticky"
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep3 >=
+    steps3.length
+      ? 0
+      : 1};"
+  >
+    Taux d’énergies renouvelables et de récupérations locales
+  </h2>
+
+  <Donut {currentStep3} />
   <!-- The scrolling container which includes each of the text elements -->
-  <Scrolly bind:value={currentStep2}>
-    {#each steps as text, i}
-      <div class="step" class:active={currentStep2 === i}>
-        <div class="step-content">
+  <Scrolly bind:value={currentStep3}>
+    {#each steps3 as text, i}
+      <div class="step" class:active={currentStep3 === i}>
+        <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
           {@html text}
         </div>
       </div>
