@@ -10,8 +10,10 @@
   import Scrolly from '$lib/components/Scrolly.svelte';
   import { data } from '$lib/data/data';
   import { tweened } from 'svelte/motion';
+  import DatavizPartDesReseaux from './dataviz_part_des_reseaux.svelte';
+  import datavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
+  import DatavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
 
-  import { scaleLinear } from 'd3-scale';
   /* 
   const tweenedX = tweened(
     data.part_des_reseaux_de_chaleur.position_valeur_energie_totale.map(
@@ -34,172 +36,40 @@
     );
   }; */
 
-  let width = window.innerWidth * 0.8; // Ajustement de la largeur
-  let height = window.innerHeight * 0.4; // Ajustement de la hauteur
-
-  // Écouteur d'événements pour le redimensionnement de la fenêtre
-  window.addEventListener('resize', () => {
-    width = window.innerWidth * 0.8;
-    height = window.innerHeight * 0.4;
-  });
-
-  let xScale = scaleLinear().domain([0, 10]).range([0, width]);
-  let yScale = scaleLinear().domain([0, 10]).range([height, 0]);
-
   /**
    * @type {number}
    */
   let currentStep;
+  /**
+   * @type {number}
+   */
+  let currentStep2;
   const steps = [
     data.part_des_reseaux_de_chaleur.taux_en_r_r_energie_totale,
     data.part_des_reseaux_de_chaleur.taux_en_r_r_chaleur_totale,
     data.part_des_reseaux_de_chaleur.taux_en_r_r_reseau_de_chaleur,
-    '<p>Step 3.</p>',
+    '',
   ];
 
-  let radiusScale = function (d) {
-    return Math.sqrt(d.r * 10); // Utilisation de la racine carrée pour déterminer le rayon
-  };
+  const steps2 = ['<p>Step 3.</p>'];
 </script>
 
 <section>
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <h2
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center;"
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep >=
+      steps.length ||
+    currentStep == 3 ||
+    currentStep == undefined
+      ? 0
+      : 1};"
   >
     Part des réseaux de chaleur dans la consommation de chaleur
   </h2>
-  <div class="chart">
-    <svg {width} {height} transform="translate(50%, -50%)">
-      <!-- Energie totale -->
-      {#each data.part_des_reseaux_de_chaleur.position_valeur_energie_totale as d, index}
-        <circle
-          cx={width / d.foo}
-          cy={height - radiusScale(d) - 40}
-          r={radiusScale(d)}
-          fill={d.color}
-          stroke="#FFFFFF"
-          opacity={currentStep === 0 ? 1 : 0.2}
-        />
-        <foreignObject
-          x={width / d.foo - 90}
-          y={height - radiusScale(d) - 120}
-          width="180"
-          height="50"
-          opacity={currentStep === 0 ? 1 : 0}
-        >
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style="font-size: calc(10px + 0.5vw); color: black; text-align: center;"
-          >
-            {d.energie_total_consommation_finale_totale}
-          </div>
-        </foreignObject>
-      {/each}
-      <!-- Chaleur totale -->
-      {#each data.part_des_reseaux_de_chaleur.position_valeur_chaleur_totale as d, index}
-        <circle
-          cx={width / d.foo}
-          cy={height - radiusScale(d) - 40}
-          r={radiusScale(d)}
-          fill={d.color}
-          stroke="#FFFFFF"
-          opacity={currentStep < 1 ? 0 : currentStep === 1 ? 1 : 0.2}
-        />
-        <foreignObject
-          x={width / d.foo - 90}
-          y={height - radiusScale(d) - 90 - 50}
-          width="180"
-          height="60"
-          opacity={currentStep < 1 ? 0 : currentStep === 1 ? 1 : 0}
-        >
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style="font-size: calc(10px + 0.5vw); color: black; text-align: center;"
-          >
-            {d.chaleur_totale_consommation_finale_totale}
-          </div>
-        </foreignObject>
-      {/each}
-      <!-- Ajout de deux ticks X pour l'axe X -->
-      <text
-        x={width /
-          data.part_des_reseaux_de_chaleur.position_valeur_energie_totale[0]
-            .foo}
-        y={height * 0.95}
-        text-anchor="middle"
-        class="axis"
-        fill="black"
-        font-size="calc(12px + 0.5vw)"
-      >
-        Consommation finale totale
-      </text>
-      <text
-        x={width /
-          data.part_des_reseaux_de_chaleur.position_valeur_energie_totale[1]
-            .foo}
-        y={height * 0.95}
-        text-anchor="middle"
-        class="axis"
-        fill="black"
-        font-size="18px"
-      >
-        Consommation finale en R&R
-      </text>
-      <!-- Réseau de chaleur totale -->
-      {#each data.part_des_reseaux_de_chaleur.position_valeur_reseau_de_chaleur as d, index}
-        <circle
-          cx={width / d.foo}
-          cy={height - radiusScale(d) - 40}
-          r={radiusScale(d)}
-          fill={d.color}
-          stroke="#FFFFFF"
-          opacity={currentStep < 1 ? 0 : currentStep >= 2 ? 1 : 0}
-        />
-        <foreignObject
-          x={width / d.foo - 90}
-          y={height - radiusScale(d) - 90 - 30}
-          width="180"
-          height="60"
-          opacity={currentStep < 1 ? 0 : currentStep >= 2 ? 1 : 0}
-        >
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style="font-size: calc(10px + 0.5vw); color: black; text-align: center;"
-          >
-            {d.reseau_de_chaleur_consommation_finale_totale}
-          </div>
-        </foreignObject>
-      {/each}
-      <!-- Ajout de deux ticks X pour l'axe X -->
-      <text
-        x={width /
-          data.part_des_reseaux_de_chaleur.position_valeur_energie_totale[0]
-            .foo}
-        y={height * 0.95}
-        text-anchor="middle"
-        class="axis"
-        fill="black"
-        font-size="calc(12px + 0.5vw)"
-      >
-        Consommation finale totale
-      </text>
-      <text
-        x={width /
-          data.part_des_reseaux_de_chaleur.position_valeur_energie_totale[1]
-            .foo}
-        y={height * 0.95}
-        text-anchor="middle"
-        class="axis"
-        fill="black"
-        font-size="18px"
-      >
-        Consommation finale en R&R
-      </text>
-    </svg>
-  </div>
-
+  {#if currentStep != 3}
+    <DatavizPartDesReseaux {currentStep} {steps} />
+  {/if}
   <!-- The scrolling container which includes each of the text elements -->
   <Scrolly bind:value={currentStep}>
     {#each steps as text, i}
@@ -210,21 +80,22 @@
       </div>
     {/each}
   </Scrolly>
+  <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
+
+  <DatavizReseauxChaleurFroid {currentStep2} />
+  <!-- The scrolling container which includes each of the text elements -->
+  <Scrolly bind:value={currentStep2}>
+    {#each steps as text, i}
+      <div class="step" class:active={currentStep2 === i}>
+        <div class="step-content">
+          {@html text}
+        </div>
+      </div>
+    {/each}
+  </Scrolly>
 </section>
 
 <style>
-  /* The fixed chart */
-  /* Le graphique fixe */
-  .chart {
-    /*    background: whitesmoke; */
-    width: 100dvw; /* Largeur responsive */
-    height: 100dvh; /* Hauteur responsive */
-    /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); */
-    position: sticky;
-    top: 23%;
-    margin-top: 0;
-    transform: translate(0%, 0%);
-  }
   /* Scrollytelling CSS */
   .step {
     height: 80vh;
