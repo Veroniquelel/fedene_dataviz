@@ -13,7 +13,7 @@
   import DatavizPartDesReseaux from './dataviz_part_des_reseaux.svelte';
   import Donut from './donut.svelte';
   import DatavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
-
+  import MixChart from './mix.svelte';
   /* 
   const tweenedX = tweened(
     data.part_des_reseaux_de_chaleur.position_valeur_energie_totale.map(
@@ -48,6 +48,12 @@
    * @type {number}
    */
   let currentStep3;
+  /**
+   * @type {number}
+   */
+  let currentStep4;
+  const steps4 = [];
+
   const steps = [
     data.part_des_reseaux_de_chaleur.taux_en_r_r_energie_totale,
     data.part_des_reseaux_de_chaleur.taux_en_r_r_chaleur_totale,
@@ -63,6 +69,8 @@
     data.taux_en_R_R[2].label,
     '',
   ];
+
+  $: console.log(currentStep3);
 </script>
 
 <section>
@@ -99,8 +107,10 @@
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <h2
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep3 >=
-    steps3.length
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep3 >
+      steps3.length ||
+    currentStep3 === 3 ||
+    currentStep3 === undefined
       ? 0
       : 1};"
   >
@@ -118,7 +128,26 @@
       </div>
     {/each}
   </Scrolly>
+  <h2
+    class="sticky"
+    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
+    steps4.length
+      ? 0
+      : 1};"
+  >
+    Mix énergétique en 2022
+  </h2>
 </section>
+<MixChart />
+<Scrolly bind:value={currentStep4}>
+  {#each steps4 as text, i}
+    <div class="step" class:active={currentStep4 === i}>
+      <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
+        {@html text}
+      </div>
+    </div>
+  {/each}
+</Scrolly>
 
 <style>
   /* Scrollytelling CSS */

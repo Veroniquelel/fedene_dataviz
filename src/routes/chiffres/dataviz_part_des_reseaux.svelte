@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import { data } from '$lib/data/data';
   import { scaleLinear } from 'd3-scale';
 
@@ -6,13 +7,21 @@
     return Math.sqrt(d.r * 10); // Utilisation de la racine carrée pour déterminer le rayon
   };
 
-  let width = window.innerWidth * 0.8; // Ajustement de la largeur
-  let height = window.innerHeight / 2; // Ajustement de la hauteur
+  let width = 0; // Initialiser avec une valeur par défaut
+  let height = 0; // Initialiser avec une valeur par défaut
 
-  // Écouteur d'événements pour le redimensionnement de la fenêtre
-  window.addEventListener('resize', () => {
-    width = window.innerWidth * 0.8;
-    height = window.innerHeight * 0.4;
+  // Cette fonction sera appelée lorsque le composant est monté dans le DOM
+  onMount(() => {
+    if (typeof window !== 'undefined') {
+      width = window.innerWidth * 0.8; // Ajustement de la largeur
+      height = window.innerHeight / 2; // Ajustement de la hauteur
+
+      // Ajout d'un écouteur pour redimensionner en cas de changement de taille de la fenêtre
+      window.addEventListener('resize', () => {
+        width = window.innerWidth * 0.8;
+        height = window.innerHeight * 0.4;
+      });
+    }
   });
 
   let xScale = scaleLinear().domain([0, 10]).range([0, width]);

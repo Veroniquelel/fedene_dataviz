@@ -23,5 +23,18 @@ export const data = {
         { chiffre: 37.6, label: 'Total taux d’EnR&R en 2012' },
         { chiffre: 66.5, label: 'Total taux d’EnR&R en 2022' },
         { chiffre: 75, label: 'Total taux d’EnR&R en 2030' },
-    ]
+    ],
+    data_mix: [
+        { ages: 'Gaz naturel', count: '9673.4' },
+        { ages: 'Chaleur fatale - UVE', count: '9564.1' },
+        { ages: 'Biomasse', count: '8114' },
+        { ages: 'Géothermie', count: '1732.7' },
+        { ages: 'Chaleur fatale - industrielle', count: '349' },
+    { ages: 'Autres EnR&R', count: '865.5' },
+    { ages: 'Charbon', count: '599.7' },
+	{ ages: 'GOB', count: '556.2' },
+    { ages: 'Fiouls', count: '211.1' },
+    { ages: 'Autres énergies fossiles', count: '209.5' }
+]
 }
+
