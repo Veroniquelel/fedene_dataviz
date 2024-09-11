@@ -338,10 +338,7 @@
                 id="mn-menu-item-104"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104 nav-item"
               >
-                <a
-                  itemprop="url"
-                  href="https://fedene.fr/actualites/"
-                  class="nav-link"
+                <a itemprop="url" href="/carte" class="nav-link"
                   ><span itemprop="name"
                     ><span>Chiffres clés par région</span></span
                   ></a

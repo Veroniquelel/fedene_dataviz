@@ -82,7 +82,7 @@
     '',
   ];
 
-  const steps4 = [''];
+  const steps4 = ['', ''];
 
   const steps = [
     data.part_des_reseaux_de_chaleur.taux_en_r_r_energie_totale,
@@ -161,8 +161,8 @@
   </Scrolly>
   <h2
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 !=
-      0 || currentStep4 === undefined
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
+      1 || currentStep4 === undefined
       ? 0
       : 1};"
   >
