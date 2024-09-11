@@ -74,7 +74,11 @@
   }
 </script>
 
-<div id="specificChart" class="donut-size">
+<div
+  id="specificChart"
+  class="donut-size"
+  style="opacity: {currentStep3 <= 2 ? 1 : 0};"
+>
   <div class="pie-wrapper">
     <span class="label">
       <span class="num">0</span><span class="smaller">%</span>

@@ -7,16 +7,16 @@ export const data = {
         taux_en_r_r_chaleur_totale: "Taux En R&R moyen : 23%",
         taux_en_r_r_energie_totale: "Taux En R&R moyen : 13,9%",
         position_valeur_energie_totale: [
-            { foo: 2.5, r: 1532, color: "#ED6E6E", energie_total_consommation_finale_totale: "Energie totale : 1532 TWh"},
+            { foo: 2.5, r: 1532, color: "#ED6E6E", energie_total_consommation_finale_totale: "Energie totale : 1532 TWh" },
             { foo: 1.2, r: 213, color: "#0B7958", energie_total_consommation_finale_totale: "Energie totale : 213 TWh" },
         ],
-       position_valeur_chaleur_totale: [
-            { foo: 2.5, r: 628, color: "#ED8C6E",  chaleur_totale_consommation_finale_totale: "Chaleur totale : 628 TWh" },
-            { foo: 1.2, r: 144, color: "#30A884" , chaleur_totale_consommation_finale_totale: "Chaleur totale : 144 TWh" },
+        position_valeur_chaleur_totale: [
+            { foo: 2.5, r: 628, color: "#ED8C6E", chaleur_totale_consommation_finale_totale: "Chaleur totale : 628 TWh" },
+            { foo: 1.2, r: 144, color: "#30A884", chaleur_totale_consommation_finale_totale: "Chaleur totale : 144 TWh" },
         ],
-       position_valeur_reseau_de_chaleur: [
-            { foo: 2.5, r: 27, color: "#F8A5A5",  reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 27 TWh" },
-            { foo: 1.2, r: 19, color: "#58D0AC" , reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 19 TWh" },
+        position_valeur_reseau_de_chaleur: [
+            { foo: 2.5, r: 27, color: "#F8A5A5", reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 27 TWh" },
+            { foo: 1.2, r: 19, color: "#58D0AC", reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 19 TWh" },
         ],
     },
     taux_en_R_R: [
@@ -30,16 +30,32 @@ export const data = {
         { label: 'Biomasse', count: '8114' },
         { label: 'Géothermie', count: '1732.7' },
         { label: 'Chaleur fatale - industrielle', count: '349' },
-    { label: 'Autres EnR&R', count: '865.5' },
-    { label: 'Charbon', count: '599.7' },
-	{ label: 'GOB', count: '556.2' },
-    { label: 'Fiouls', count: '211.1' },
-    { label: 'Autres énergies fossiles', count: '209.5' }
+        { label: 'Autres EnR&R', count: '865.5' },
+        { label: 'Charbon', count: '599.7' },
+        { label: 'GOB', count: '556.2' },
+        { label: 'Fiouls', count: '211.1' },
+        { label: 'Autres énergies fossiles', count: '209.5' }
     ],
     empreinte_Carbone: [
-    { foo: 200, bar: 2012, label: '200 gCO₂/kWh en 2012' },
-     { foo: 112, bar: 2022, label:'112 gCO₂/kWh en 2022' },
-    { foo: 79, bar: 2030, label:'79 gCO₂/kWh en 2030' },
-  ]
+        { foo: 200, bar: 2012, label: '200 gCO₂/kWh en 2012' },
+        { foo: 112, bar: 2022, label: '112 gCO₂/kWh en 2022' },
+        { foo: 79, bar: 2030, label: '79 gCO₂/kWh en 2030' },
+    ],
+    secteur_de_livraison: [
+        {
+            label: 'Résidentiel',
+            bar: '52.9%',
+            icon: 'residentiel.svg',
+        },
+        { label: 'Tertiaire', bar: '35%', icon: 'tertiaire.svg' },
+        {
+            label: 'Agriculture',
+            bar: '5.7%',
+            icon: 'agriculture.svg',
+        },
+        { label: 'Industrie', bar: '6.4%', icon: 'industrie.svg' },
+    ],
+    repartition_villes: [{label:"2000 réseaux petites villes", value:2000},{label:"150 réseaux grandes villes", value:150}]
+     
 }
 

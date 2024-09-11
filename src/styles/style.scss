@@ -27,3 +27,9 @@ h2 {
     font-weight: 600;
     font-size: clamp(1rem, 1.5vw + 1rem, 2rem); /* Taille responsive */
 }
+
+h3 {
+    font-size: 1.25rem; /* Taille de police par défaut */
+    font-weight: 500;
+    font-size: clamp(0.75rem, 1.25vw + 1rem, 1.75rem); /* Taille responsive */
+}

@@ -122,7 +122,10 @@
 
 <div
   class="chart"
-  style="padding: 30px; display: flex; justify-content: center;"
+  style="padding: 30px; display: flex; justify-content: center; opacity: {currentStep5 <=
+  2
+    ? 1
+    : 0};"
 >
   <svg id="chartEmpreinte" {width} {height}></svg>
 </div>

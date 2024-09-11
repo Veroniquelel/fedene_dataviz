@@ -15,6 +15,8 @@
   import DatavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
   import MixChart from './mix.svelte';
   import Empreinte from './empreinte_carbone.svelte';
+  import SecteurDeLivraison from './secteurDeLivraison.svelte';
+  import RepartitionVilles from './repartitionVilles.svelte';
   /* 
   const tweenedX = tweened(
     data.part_des_reseaux_de_chaleur.position_valeur_energie_totale.map(
@@ -59,6 +61,20 @@
    */
   let currentStep5;
 
+  /**
+   * @type {number}
+   */
+  let currentStep6;
+
+  /**
+   * @type {number}
+   */
+  let currentStep7;
+
+  const steps7 = [''];
+
+  const steps6 = ['', ''];
+
   const steps5 = [
     data.empreinte_Carbone[0].label,
     data.empreinte_Carbone[1].label,
@@ -66,7 +82,7 @@
     '',
   ];
 
-  const steps4 = ['', '', ''];
+  const steps4 = [''];
 
   const steps = [
     data.part_des_reseaux_de_chaleur.taux_en_r_r_energie_totale,
@@ -84,7 +100,7 @@
     '',
   ];
 
-  $: console.log(currentStep3);
+  $: console.log(currentStep6);
 </script>
 
 <section>
@@ -130,9 +146,9 @@
   >
     Taux d’énergies renouvelables et de récupérations locales
   </h2>
-  {#if currentStep3 <= 2}
-    <Donut {currentStep3} />
-  {/if}
+
+  <Donut {currentStep3} />
+
   <!-- The scrolling container which includes each of the text elements -->
   <Scrolly bind:value={currentStep3}>
     {#each steps3 as text, i}
@@ -145,10 +161,8 @@
   </Scrolly>
   <h2
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
-      steps4.length ||
-    currentStep4 != 0 ||
-    currentStep4 === undefined
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 !=
+      0 || currentStep4 === undefined
       ? 0
       : 1};"
   >
@@ -169,17 +183,56 @@
   <h2
     class="sticky"
     style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep5 >=
-    steps5.length
+      steps5.length || currentStep5 === undefined
       ? 0
       : 1};"
   >
     Empreinte Carbone
   </h2>
 
-  <Empreinte />
+  <Empreinte {currentStep5} />
+
   <Scrolly bind:value={currentStep5}>
     {#each steps5 as text, i}
       <div class="step" class:active={currentStep5 === i}>
+        <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
+          {@html text}
+        </div>
+      </div>
+    {/each}
+  </Scrolly>
+  <h2
+    class="sticky"
+    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep6 >=
+      1 || currentStep6 === undefined
+      ? 0
+      : 1};"
+  >
+    Secteurs de Livraison
+  </h2>
+  <SecteurDeLivraison {currentStep6} />
+  <Scrolly bind:value={currentStep6}>
+    {#each steps6 as text, i}
+      <div class="step" class:active={currentStep6 === i}>
+        <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
+          {@html text}
+        </div>
+      </div>
+    {/each}
+  </Scrolly>
+  <h2
+    class="sticky"
+    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep7 >=
+    steps7.length
+      ? 0
+      : 1};"
+  >
+    Répartition sur la taille des villes
+  </h2>
+  <RepartitionVilles />
+  <Scrolly bind:value={currentStep7}>
+    {#each steps7 as text, i}
+      <div class="step" class:active={currentStep7 === i}>
         <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
           {@html text}
         </div>
