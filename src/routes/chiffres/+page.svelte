@@ -14,6 +14,7 @@
   import Donut from './donut.svelte';
   import DatavizReseauxChaleurFroid from './dataviz_reseaux_chaleur_froid.svelte';
   import MixChart from './mix.svelte';
+  import Empreinte from './empreinte_carbone.svelte';
   /* 
   const tweenedX = tweened(
     data.part_des_reseaux_de_chaleur.position_valeur_energie_totale.map(
@@ -52,7 +53,20 @@
    * @type {number}
    */
   let currentStep4;
-  const steps4 = [];
+
+  /**
+   * @type {number}
+   */
+  let currentStep5;
+
+  const steps5 = [
+    data.empreinte_Carbone[0].label,
+    data.empreinte_Carbone[1].label,
+    data.empreinte_Carbone[2].label,
+    '',
+  ];
+
+  const steps4 = ['', '', ''];
 
   const steps = [
     data.part_des_reseaux_de_chaleur.taux_en_r_r_energie_totale,
@@ -116,8 +130,9 @@
   >
     Taux d’énergies renouvelables et de récupérations locales
   </h2>
-
-  <Donut {currentStep3} />
+  {#if currentStep3 <= 2}
+    <Donut {currentStep3} />
+  {/if}
   <!-- The scrolling container which includes each of the text elements -->
   <Scrolly bind:value={currentStep3}>
     {#each steps3 as text, i}
@@ -130,24 +145,48 @@
   </Scrolly>
   <h2
     class="sticky"
-    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
-    steps4.length
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
+      steps4.length ||
+    currentStep4 != 0 ||
+    currentStep4 === undefined
       ? 0
       : 1};"
   >
     Mix énergétique en 2022
   </h2>
-</section>
-<MixChart />
-<Scrolly bind:value={currentStep4}>
-  {#each steps4 as text, i}
-    <div class="step" class:active={currentStep4 === i}>
-      <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
-        {@html text}
+
+  <MixChart />
+  <Scrolly bind:value={currentStep4}>
+    {#each steps4 as text, i}
+      <div class="step" class:active={currentStep4 === i}>
+        <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
+          {@html text}
+        </div>
       </div>
-    </div>
-  {/each}
-</Scrolly>
+    {/each}
+  </Scrolly>
+
+  <h2
+    class="sticky"
+    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep5 >=
+    steps5.length
+      ? 0
+      : 1};"
+  >
+    Empreinte Carbone
+  </h2>
+
+  <Empreinte />
+  <Scrolly bind:value={currentStep5}>
+    {#each steps5 as text, i}
+      <div class="step" class:active={currentStep5 === i}>
+        <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
+          {@html text}
+        </div>
+      </div>
+    {/each}
+  </Scrolly>
+</section>
 
 <style>
   /* Scrollytelling CSS */

@@ -91,7 +91,7 @@
         <svg width="20" height="20">
           <rect width="20" height="20" fill={colors[i]} />
         </svg>
-        <span>{item.ages} ({(yVals[i] * 100).toFixed(2)}%) </span>
+        <span>{item.label} ({(yVals[i] * 100).toFixed(2)}%) </span>
       </div>
     {/each}
   </div>
@@ -109,20 +109,18 @@
 
   #mix {
     width: 98dvw;
-    height: 100dvh;
+    height: 50dvh;
     position: sticky;
     top: 23%;
+    margin-top: 0;
     transform: translate(0%, 0%);
-    @media (max-width: 768px) {
-      transform: translate(0%, 0%);
-    }
+    margin-bottom: 120px; /* Ajouter une marge pour séparer la légende du graphique */
   }
 
   .legend {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
   }
 
   .legend-item {
@@ -133,7 +131,7 @@
 
   .legend-item span {
     margin-left: 8px;
-    font-size: calc(12px + 0.3vw); /* Responsive font size */
+    font-size: calc(12px + 0.3vw); /* Taille de police responsive */
   }
 
   /* Styles pour le tooltip */

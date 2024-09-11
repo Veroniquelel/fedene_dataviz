@@ -25,16 +25,21 @@ export const data = {
         { chiffre: 75, label: 'Total taux d’EnR&R en 2030' },
     ],
     data_mix: [
-        { ages: 'Gaz naturel', count: '9673.4' },
-        { ages: 'Chaleur fatale - UVE', count: '9564.1' },
-        { ages: 'Biomasse', count: '8114' },
-        { ages: 'Géothermie', count: '1732.7' },
-        { ages: 'Chaleur fatale - industrielle', count: '349' },
-    { ages: 'Autres EnR&R', count: '865.5' },
-    { ages: 'Charbon', count: '599.7' },
-	{ ages: 'GOB', count: '556.2' },
-    { ages: 'Fiouls', count: '211.1' },
-    { ages: 'Autres énergies fossiles', count: '209.5' }
-]
+        { label: 'Gaz naturel', count: '9673.4' },
+        { label: 'Chaleur fatale - UVE', count: '9564.1' },
+        { label: 'Biomasse', count: '8114' },
+        { label: 'Géothermie', count: '1732.7' },
+        { label: 'Chaleur fatale - industrielle', count: '349' },
+    { label: 'Autres EnR&R', count: '865.5' },
+    { label: 'Charbon', count: '599.7' },
+	{ label: 'GOB', count: '556.2' },
+    { label: 'Fiouls', count: '211.1' },
+    { label: 'Autres énergies fossiles', count: '209.5' }
+    ],
+    empreinte_Carbone: [
+    { foo: 200, bar: 2012, label: '200 gCO₂/kWh en 2012' },
+     { foo: 112, bar: 2022, label:'112 gCO₂/kWh en 2022' },
+    { foo: 79, bar: 2030, label:'79 gCO₂/kWh en 2030' },
+  ]
 }
 
