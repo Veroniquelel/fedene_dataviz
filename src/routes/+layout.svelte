@@ -31,23 +31,8 @@
               itemtype="http://www.schema.org/SiteNavigationElement"
             >
               <li
-                id="mn-menu-item-103"
-                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-103 nav-item"
-              ></li>
-              <li
-                id="mn-menu-item-103"
-                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children is-mega-menu is-mega-fedene-menu dropdown menu-item-103 nav-item"
-              >
-                <div
-                  class="mega-dropdown p-0 dropdown-menu"
-                  aria-labelledby="66de95d8cdd50-menu-item-dropdown-103"
-                  role="menu"
-                ></div>
-              </li>
-
-              <li
                 id="mn-menu-item-102"
-                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-102 nav-item"
+                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown nav-item"
               >
                 <a
                   href="/chiffres"
@@ -60,7 +45,35 @@
                     ><span>Chiffres clés France entière</span></span
                   ></a
                 >
+                <!-- Sous-menu -->
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="66de95d8ceabb-menu-item-dropdown-102"
+                >
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/1">Item 1</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/2">Item 2</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/3">Item 3</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/4">Item 4</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/5">Item 5</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/6">Item 6</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/chiffres/7">Item 7</a>
+                  </li>
+                </ul>
               </li>
+
               <li
                 id="mn-menu-item-104"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104 nav-item"

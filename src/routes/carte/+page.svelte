@@ -39,7 +39,7 @@
 
     map = new maplibregl.Map({
       container: 'map',
-      style: 'https://demotiles.maplibre.org/style.json',
+      style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
       center: [1.8, 47.75],
       zoom: 3,
       maxBounds: franceBounds, // Limiter le panning à la France

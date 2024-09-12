@@ -100,7 +100,20 @@
     '',
   ];
 
-  $: console.log(currentStep6);
+  $: console.log(
+    'currentStep 6:',
+    currentStep6,
+    'currentStep 5:',
+    currentStep5,
+    'currentStep 4:',
+    currentStep4,
+    'currentStep 3:',
+    currentStep3,
+    'currentStep 2:',
+    currentStep2,
+    'currentStep :',
+    currentStep
+  );
 </script>
 
 <section>
@@ -137,10 +150,10 @@
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <h2
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep3 >
-      steps3.length ||
-    currentStep3 === 3 ||
-    currentStep3 === undefined
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {(currentStep3 >=
+      3 &&
+      currentStep2 === undefined) ||
+    currentStep3 == undefined
       ? 0
       : 1};"
   >
@@ -161,8 +174,10 @@
   </Scrolly>
   <h2
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
-      1 || currentStep4 === undefined
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {(currentStep4 >=
+      1 &&
+      currentStep3 === undefined) ||
+    currentStep4 == undefined
       ? 0
       : 1};"
   >
@@ -182,8 +197,8 @@
 
   <h2
     class="sticky"
-    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep5 >=
-      steps5.length || currentStep5 === undefined
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep5 >=
+      3 || currentStep5 === undefined
       ? 0
       : 1};"
   >
@@ -203,7 +218,7 @@
   </Scrolly>
   <h2
     class="sticky"
-    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep6 >=
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep6 >=
       1 || currentStep6 === undefined
       ? 0
       : 1};"
@@ -222,7 +237,7 @@
   </Scrolly>
   <h2
     class="sticky"
-    style="position: sticky; top: 2%; z-index: 1000; text-align: center; opacity: {currentStep7 >=
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep7 >=
     steps7.length
       ? 0
       : 1};"

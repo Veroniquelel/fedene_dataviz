@@ -36,8 +36,8 @@
       // Réinitialiser la hauteur quand on revient au-dessus de l'image
       heightPercentage = 0;
     }
-
-    console.log(heightPercentage);
+    /*   console.log(scrollPos, imgTopOffset);
+    console.log(heightPercentage); */
   };
 
   onMount(() => {
