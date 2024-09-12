@@ -1,40 +1,50 @@
-# create-svelte
+# FEDENE DataViz
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Une application Svelte conçue pour la FEDENE, intégrant des fonctionnalités de scrollytelling et une composante cartographique.
 
-## Creating a project
+## Création du projet
 
-If you're seeing this, you've probably already done this step. Congrats!
+Pour créer un projet Svelte, suivez ces étapes :
 
 ```bash
-# create a new project in the current directory
+# Créez un nouveau projet dans le répertoire courant
 npm create svelte@latest
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+# Créez un nouveau projet dans le répertoire 'fedene-dataviz'
+npm create svelte@latest fedene-dataviz
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Développement
+Une fois le projet créé et les dépendances installées, vous pouvez démarrer un serveur de développement :
 
-```bash
+bash
+Copier le code
+npm install
 npm run dev
 
-# or start the server and open the app in a new browser tab
+# Ou démarrez le serveur et ouvrez l'application dans un nouvel onglet de navigateur
 npm run dev -- --open
-```
+L'application sera disponible à l'adresse http://localhost:5173 par défaut.
 
-## Building
+Fonctionnalités
+Scrollytelling : Présente des données interactives avec des animations au défilement de la page.
+Cartographie : Intègre des cartes interactives pour visualiser les données géographiques.
+Construction
+Pour créer une version optimisée de l'application pour la production :
 
-To create a production version of your app:
-
-```bash
+bash
+Copier le code
 npm run build
+Vous pouvez prévisualiser la version de production avec :
+
+bash
+Copier le code
+npm run preview
+Déploiement
+Pour déployer l'application, vous pourriez avoir besoin d'un adaptateur en fonction de votre environnement cible.
+
+Structure du projet
+src/ : Contient tous les fichiers sources de l'application Svelte.
+styles/ : Feuilles de style SCSS et CSS.
+routes/ : Définition des pages et des routes de l'application.
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-# fedene_dataviz
