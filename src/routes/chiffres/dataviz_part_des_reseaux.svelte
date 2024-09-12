@@ -32,7 +32,7 @@
 </script>
 
 <div class="chart" style="opacity: {currentStep !== undefined ? 1 : 0};">
-  <svg {width} {height} transform="translate(50%, -50%)">
+  <svg {width} {height}>
     <!-- Energie totale -->
     {#each data.part_des_reseaux_de_chaleur.position_valeur_energie_totale as d, index}
       <circle
