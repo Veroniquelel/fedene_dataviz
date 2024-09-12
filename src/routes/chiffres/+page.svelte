@@ -38,6 +38,26 @@
       )
     );
   }; */
+  // Vérifie que nous sommes côté client avant d'accéder à `document`
+  if (typeof window !== 'undefined') {
+    // Get the button:
+    let mybutton = document.getElementById('myBtn');
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = 'block';
+      } else {
+        mybutton.style.display = 'none';
+      }
+    }
+  }
 
   /**
    * @type {number}
@@ -100,7 +120,7 @@
     '',
   ];
 
-  $: console.log(
+  /*  $: console.log(
     'currentStep 6:',
     currentStep6,
     'currentStep 5:',
@@ -113,12 +133,19 @@
     currentStep2,
     'currentStep :',
     currentStep
-  );
+  ); */
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 </script>
 
 <section>
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <h2
+    id="dataviz_part_des_reseaux"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep >=
       steps.length ||
@@ -149,6 +176,7 @@
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <h2
+    id="taux_energie_renouvelable"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {(currentStep3 >=
       3 &&
@@ -173,6 +201,7 @@
     {/each}
   </Scrolly>
   <h2
+    id="mix_energetique"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {(currentStep4 >=
       1 &&
@@ -196,6 +225,7 @@
   </Scrolly>
 
   <h2
+    id="empreinte_carbone"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep5 >=
       3 || currentStep5 === undefined
@@ -217,6 +247,7 @@
     {/each}
   </Scrolly>
   <h2
+    id="secteurs_livraison"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep6 >=
       1 || currentStep6 === undefined
@@ -236,6 +267,7 @@
     {/each}
   </Scrolly>
   <h2
+    id="taille_villes"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep7 >=
     steps7.length
@@ -254,6 +286,9 @@
       </div>
     {/each}
   </Scrolly>
+  <button on:click={topFunction} id="myBtn" class="" title="Go to top"
+    ><i class="up"></i></button
+  >
 </section>
 
 <style>
@@ -294,5 +329,38 @@
       font-size: 9px; /* Taille de police fixe pour les petits écrans */
       line-height: 1.5; /* Espacement entre les lignes pour permettre le texte sur 2 lignes */
     }
+  }
+
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    /* border-radius: 100px; */
+    font-size: 1px;
+  }
+
+  #myBtn:hover {
+    background-color: rgba(
+      108,
+      209,
+      88,
+      0.182
+    ); /* Add a dark-grey background on hover */
+  }
+
+  .up {
+    border: solid rgb(108, 209, 88);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
   }
 </style>

@@ -72,6 +72,7 @@
 </script>
 
 <div
+  id="dataviz_reseaux_chaleur_froid"
   style="display: flex; top:0; justify-content: center; align-items: center; position: relative; width: 100%; height: auto;"
 >
   <!-- Image SVG responsive -->
