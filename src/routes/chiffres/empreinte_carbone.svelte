@@ -102,7 +102,8 @@
         svg
           .append('path')
           .datum(empreinte_Carbone)
-          .attr('fill', 'lightsteelblue') // Couleur de la zone
+          .attr('fill', '#123828') // Couleur de la zone
+          .attr('opacity', '0.3') // Ajouter une opacité de 0.6
           .attr('d', areaGenerator); // Tracer la zone avec les données
 
         svg.selectAll('circle').remove(); // Supprimer les cercles avant de les redessiner
@@ -111,9 +112,10 @@
             .append('circle')
             .attr('cx', xScale(d.bar))
             .attr('cy', yScale(d.foo))
-            .attr('r', 15)
-            .attr('fill', 'steelblue')
-            .attr('stroke', '#000000');
+            .attr('r', 5)
+            .attr('fill', 'white')
+            .attr('stroke', '#123828')
+            .attr('stroke-width', '2');
         });
       });
     }
