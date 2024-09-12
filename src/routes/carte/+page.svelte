@@ -1,7 +1,10 @@
 <script>
+  // @ts-nocheck
+
   import { onMount } from 'svelte';
   import maplibregl from 'maplibre-gl';
   import { data } from '$lib/data/data';
+  import MixChart from './mix.svelte';
 
   /**
    * @type {maplibregl.Map}
@@ -9,11 +12,25 @@
   let map;
   let selectedRegionData = null;
 
-  onMount(() => {
-    const headerHeight = document.getElementById('header').offsetHeight; // Récupérer la hauteur de l'en-tête
-    const mapHeight = window.innerHeight - headerHeight - 40; // Calculer la hauteur de la carte
-    document.getElementById('map').style.height = `${mapHeight}px`; // Appliquer la hauteur à la carte
+  // @ts-ignore
+  let region = 'Bretagne';
 
+  onMount(() => {
+    /*         document.getElementById('map').style.height = `${mapHeight}px`; // Appliquer la hauteur à la carte
+    document.getElementById('number').style.height = `${mapHeight}px`; // Appliquer la hauteur à la carte
+ */
+
+    // @ts-ignore
+    const headerHeight = document.getElementById('header').offsetHeight; // Récupérer la hauteur de l'en-tête
+    const nameRegionHeight = document.querySelector('.nameRegion').offsetHeight; // Récupérer la hauteur de l'élément nameRegion
+
+    const mapHeight = window.innerHeight - headerHeight - nameRegionHeight - 40; // Calculer la hauteur de la carte
+    const contHeight =
+      window.innerHeight - headerHeight - nameRegionHeight - 100; // Calculer la hauteur de la carte
+    // @ts-ignore
+    document.getElementById('grid').style.height = `${contHeight}px`; // Appliquer la hauteur à la carte */
+    document.getElementById('map').style.height = `${mapHeight}px`; // Appliquer la hauteur à la carte */
+    document.getElementById('number').style.height = `${mapHeight}px`; // Appliquer la hauteur à la carte */
     // les limites pour la France métropolitaine
     const franceBounds = [
       [-6.0, 41.0], // SW
@@ -83,12 +100,16 @@
         },
       }); */
 
+      /**
+       * @type {string | number | null | undefined}
+       */
       let hoveredRegionId = null;
 
       // Ajouter l'effet de surbrillance au survol
       map.on('mousemove', 'regions-layer', (e) => {
         map.getCanvas().style.cursor = 'pointer';
 
+        // @ts-ignore
         if (e.features.length > 0) {
           if (hoveredRegionId !== null) {
             map.setFeatureState(
@@ -96,6 +117,7 @@
               { hover: false }
             );
           }
+          // @ts-ignore
           hoveredRegionId = e.features[0].id;
           map.setFeatureState(
             { source: 'regions', id: hoveredRegionId },
@@ -136,13 +158,14 @@
 
     // Ajouter un événement click sur les régions
     map.on('click', 'regions-layer', (e) => {
+      // @ts-ignore
       const regionName = e.features[0].properties.nom; // Nom de la région cliquée
       console.log(regionName);
+      region = regionName;
       // Chercher la région dans map_annee2022
       selectedRegionData = data.map_annee2022.find(
         (region) => region['Région'] === regionName
       );
-      console.log(selectedRegionData);
       if (selectedRegionData) {
         console.log('Données de la région:', selectedRegionData);
 
@@ -167,9 +190,9 @@
         };
 
         production = {
-          chaleur_EnR_R: `${selectedRegionData['Biomasse'] || 0} GWh`, // Peut-être "Biomasse" ou "1ère EnR&R"
-          chaleur_industrielle: `${selectedRegionData['Chaleur fatale - industrielle'] || 0} GWh`,
-          geothermie: `${selectedRegionData['Géothermie'] || 0} GWh`,
+          bois: `${selectedRegionData['1ère EnR&R'] || 0} GWh`, // Peut-être "Biomasse" ou "1ère EnR&R"
+          recycle: `${selectedRegionData['2e EnR&R'] || 0} GWh`,
+          hydro: `${selectedRegionData['3e EnR&R'] || 0} GWh`,
         };
       }
     });
@@ -184,76 +207,129 @@
     });
   });
 
+  // Chercher la région dans map_annee2022
+  selectedRegionData = data.map_annee2022.find(
+    (region) => region['Région'] === 'Bretagne'
+  );
+
+  // Mettre à jour les données de la région cliquée
   let data_chaleur = {
-    reseaux: 36,
-    chaleur_livree: '803 GWh',
-    taux_EnR_R: '76.5%',
-    contenu_CO2: '96 g/kWh',
-    batiments_raccordes: 1388,
-    longueur_reseaux: '227 km',
+    reseaux: selectedRegionData['Nombre réseaux'] || 0,
+    chaleur_livree: `${selectedRegionData['Chaleur livrée GWh'] || 0} GWh`,
+    taux_EnR_R: `${(selectedRegionData['Taux EnR&R'] * 100).toFixed(1)}%`,
+    contenu_CO2: `${selectedRegionData['Contenu CO₂ ACV g/kWh'] || 0} g/kWh`,
+    batiments_raccordes: selectedRegionData['Nombre bâtiments raccordés'] || 0,
+    longueur_reseaux: `${selectedRegionData['Longueur totale'] || 0} km`,
   };
 
   let data_froid = {
-    reseaux: 0,
-    froid_livre: '0 MWh',
-    contenu_CO2: '0 g/kWh',
-    batiments_raccordes: 0,
-    longueur_reseaux: '0 km',
+    reseaux: selectedRegionData['Nombre réseaux froid'] || 0,
+    froid_livre: `${selectedRegionData['Froid livrée MWh'] || 0} MWh`,
+    contenu_CO2: `${selectedRegionData['Contenu CO₂ ACV froid g/kWh'] || 0} g/kWh`,
+    batiments_raccordes:
+      selectedRegionData['Nombre bâtiments raccordés froid'] || 0,
+    longueur_reseaux: `${selectedRegionData['Longueur totale froid'] || 0} km`,
   };
 
   let production = {
-    chaleur_EnR_R: '631 GWh',
-    chaleur_industrielle: '132 GWh',
-    geothermie: '3.6 GWh',
+    bois: `${selectedRegionData['1ère EnR&R'] || 0} GWh`, // Peut-être "Biomasse" ou "1ère EnR&R"
+    recycle: `${selectedRegionData['2e EnR&R'] || 0} GWh`,
+    hydro: `${selectedRegionData['3e EnR&R'] || 0} GWh`,
   };
 </script>
 
-<div class="grid-container">
+<div id="grid" class="grid-container">
   <!-- Carte avec MapLibre -->
-  <div id="map"></div>
+  <h2 class="nameRegion" align="center">{region}</h2>
+  <div>
+    <div id="map"></div>
+  </div>
   <!-- Colonne de droite avec sous-colonnes -->
-  <div class="right-column">
-    <!-- Sous-colonne avec 2 rows pour les chiffres clés chaleur et froid -->
-    <div>
-      <div class="row">
-        <div>
-          <h3>CHIFFRES CLÉS - chaleur</h3>
-          <p>{data_chaleur.reseaux} Réseaux</p>
-          <p>{data_chaleur.chaleur_livree} Chaleur livrée</p>
-          <p>{data_chaleur.taux_EnR_R} Taux d'EnR&R</p>
-          <p>{data_chaleur.contenu_CO2} Contenu CO₂</p>
-          <p>{data_chaleur.batiments_raccordes} Bâtiments raccordés</p>
-          <p>{data_chaleur.longueur_reseaux} Longueur totale des réseaux</p>
+
+  <!-- Deuxième colonne -->
+  <div id="number" class="right-column">
+    <!-- Première row avec deux colonnes : chiffres chaud/froid et mix énergétique -->
+    <div class="row">
+      <!-- Colonne pour chiffres chauds et froids -->
+      <div class="key-figures-column">
+        <div class="gridChaud">
+          <h4 class="chaud" align="center">CHIFFRES CLÉS - chaleur</h4>
+          <p>
+            <span class="highlightChaud">{data_chaleur.reseaux}</span> Réseaux
+          </p>
+          <p>
+            <span class="highlightChaud">{data_chaleur.chaleur_livree}</span> Chaleur
+            livrée
+          </p>
+          <p>
+            <span class="highlightChaud">{data_chaleur.taux_EnR_R}</span> Taux d'EnR&R
+          </p>
+          <p>
+            <span class="highlightChaud">{data_chaleur.contenu_CO2}</span> Contenu
+            CO₂
+          </p>
+          <p>
+            <span class="highlightChaud"
+              >{data_chaleur.batiments_raccordes}</span
+            > Bâtiments raccordés
+          </p>
+          <p>
+            <span class="highlightChaud">{data_chaleur.longueur_reseaux}</span> Longueur
+            totale des réseaux
+          </p>
+        </div>
+        <div class="gridFroid">
+          <h4 class="froid" align="center">CHIFFRES CLÉS - froid</h4>
+          <p>
+            <span class="highlightFroid">{data_froid.reseaux}</span> Réseaux
+          </p>
+          <p>
+            <span class="highlightFroid">{data_froid.froid_livre}</span> Froid livrée
+          </p>
+          <p>
+            <span class="highlightFroid">{data_froid.contenu_CO2}</span> Contenu
+            CO₂
+          </p>
+          <p>
+            <span class="highlightFroid">{data_froid.batiments_raccordes}</span>
+            Bâtiments raccordés
+          </p>
+          <p>
+            <span class="highlightFroid">{data_froid.longueur_reseaux}</span> Longueur
+            totale des réseaux
+          </p>
         </div>
       </div>
-      <div class="row">
-        <div>
-          <h3>CHIFFRES CLÉS - froid</h3>
-          <p>{data_froid.reseaux} Réseau</p>
-          <p>{data_froid.froid_livre} Froid livré</p>
-          <p>{data_froid.contenu_CO2} Contenu CO₂</p>
-          <p>{data_froid.batiments_raccordes} Bâtiments raccordés</p>
-          <p>{data_froid.longueur_reseaux} Longueur totale des réseaux</p>
-        </div>
+
+      <!-- Colonne pour le mix énergétique -->
+      <div class="mix-energetique">
+        <h4 class="chaud2" align="center">Mix énergétique en production</h4>
+        <MixChart {selectedRegionData} />
       </div>
     </div>
 
-    <!-- Sous-colonne avec 2 sous-rows pour la production -->
-    <div>
-      <div class="sub-row">
-        <div>
-          <h3>Production de chaleur EnR&R</h3>
-          <p>{production.chaleur_EnR_R}</p>
+    <!-- Deuxième row pour la production de chaleur EnR&R -->
+    <div class="row production-row">
+      <!-- Première sous-row pour le titre -->
+      <div class="subRowProd">
+        <div class="row-title">
+          <h4 class="chaud2" align="center">Production de chaleur EnR&R</h4>
         </div>
-        <div>
-          <h3>Chaleur industrielle</h3>
-          <p>{production.chaleur_industrielle}</p>
-        </div>
-      </div>
-      <div class="sub-row">
-        <div>
-          <h3>Géothermie</h3>
-          <p>{production.geothermie}</p>
+
+        <!-- Deuxième sous-row pour le contenu -->
+        <div class="row-content">
+          <div class="item">
+            <img src="wood.svg" alt="Logo 1" class="logo2" />
+            <p>{production.bois}</p>
+          </div>
+          <div class="item">
+            <img src="bin.svg" alt="Logo 2" class="logo2" />
+            <p>{production.recycle}</p>
+          </div>
+          <div class="item">
+            <img src="hydro.svg" alt="Logo 3" class="logo2" />
+            <p>{production.hydro}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -261,49 +337,180 @@
 </div>
 
 <style>
+  p {
+    font-size: 1rem;
+  }
+
+  /* Taille de police ajustée pour les écrans de tablette */
+  @media (max-width: 768px) {
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .other {
+    border: 2px solid #e75353;
+  }
   /* Rendre la classe invisible */
   .maplibregl-control-container {
     display: none !important; /* Rendre invisible */
   }
 
+  .highlightChaud {
+    color: #e75353; /* Couleur des données */
+    font-weight: bold; /* Texte en gras */
+  }
+
+  .highlightFroid {
+    color: #4aa6e0; /* Couleur des données */
+    font-weight: bold; /* Texte en gras */
+  }
+
+  .nameRegion {
+    grid-column: 1 / -1; /* Occupe toute la largeur */
+    margin: 0;
+  }
+
+  .subRowProd {
+    border: 2px solid #e75353;
+    padding: 10px;
+  }
+
   .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 45% 54%; /* La carte prend 45% et la colonne droite 55% */
+    gap: 10px;
     text-align: left;
     padding: 20px;
   }
 
+  .chaud {
+    background-color: #fe000028;
+    color: #d52121;
+    font-weight: 600;
+  }
+
+  .chaud2 {
+    color: #d52121;
+    font-weight: 600;
+  }
+
+  .gridChaud {
+    color: #d52121;
+    padding: 5px;
+    border: 2px solid #e75353;
+    --bs-gutter-x: 0;
+  }
+
+  .froid {
+    background-color: #0094fe28;
+    color: #4aa6e0;
+    font-weight: 600;
+  }
+
+  .gridFroid {
+    color: #4aa6e0;
+    padding: 5px;
+    border: 2px solid #4aa6e0;
+    width: 100%; /* Assurez que .gridFroid prend toute la largeur */
+    box-sizing: border-box; /* Pour inclure le padding et la bordure dans la largeur */
+    --bs-gutter-x: 0;
+  }
+
   .right-column {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /*    grid-template-columns: 1fr 1fr; */
     gap: 10px;
   }
 
+  /* Première row avec deux colonnes */
   .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*  gap: 20px; */
+    color: black !important;
+    font-weight: 500;
+  }
+
+  /* Colonne pour chiffres clés (chaud et froid) */
+  .key-figures-column {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Grid pour chiffres chaud et froid */
+  .gridChaud,
+  .gridFroid {
     padding: 10px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
+    border: 2px solid;
+    text-align: center;
+  }
+
+  .gridChaud {
+    border-color: #e75353;
+  }
+
+  .gridFroid {
+    border-color: #4aa6e0;
+    height: 100%;
+  }
+
+  /* Colonne pour le mix énergétique */
+  .mix-energetique {
+    padding: 10px;
+    border: 2px solid #e75353;
+    text-align: center;
   }
 
   .sub-row {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
   }
 
   #map {
-    width: 100%;
-    height: 100dvh;
+    width: auto;
+    height: 100%;
   }
 
   @media (max-width: 768px) {
     .grid-container {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* Conteneur général pour la production */
+  .production-row {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+    gap: 20px;
+  }
+
+  /* Première sous-row pour le titre */
+  .row-title {
+    text-align: center;
+  }
+
+  /* Deuxième sous-row pour le contenu */
+  .row-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+  }
+
+  /* Style pour les items individuels (bois, recycle, hydro) */
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Style pour les images */
+  .logo2 {
+    width: 50px;
+    height: 50px;
   }
 </style>
