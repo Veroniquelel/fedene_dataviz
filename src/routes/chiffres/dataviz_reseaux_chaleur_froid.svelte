@@ -47,6 +47,7 @@
 
     // Fonction pour mettre à jour la hauteur de l'image et sa position
     const setImageDimensions = () => {
+      console.log(img);
       imgHeight = img.clientHeight; // Récupération de la hauteur de l'image
       imgTopOffset = img.getBoundingClientRect().top + window.scrollY; // Position de l'image par rapport au haut de la page
       updateHeightPercentage(); // Mise à jour immédiate lors du chargement
