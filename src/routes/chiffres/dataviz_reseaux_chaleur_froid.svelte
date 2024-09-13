@@ -27,7 +27,7 @@
   // Fonction pour ajuster la hauteur de la div en fonction du scroll
   const updateHeightPercentage = () => {
     const scrollPos = window.scrollY;
-
+    console.log(imgHeight);
     if (scrollPos >= imgTopOffset && imgHeight > 0) {
       // Calculer le pourcentage uniquement lorsque le scroll dépasse l'image
       const relativeScroll = scrollPos - imgTopOffset;
@@ -36,8 +36,8 @@
       // Réinitialiser la hauteur quand on revient au-dessus de l'image
       heightPercentage = 0;
     }
-    /*     console.log(scrollPos, imgTopOffset);
-    console.log(heightPercentage); */
+    console.log(scrollPos, imgTopOffset);
+    console.log(heightPercentage);
   };
 
   onMount(() => {
