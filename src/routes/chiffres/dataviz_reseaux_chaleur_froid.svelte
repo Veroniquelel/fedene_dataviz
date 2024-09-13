@@ -36,13 +36,11 @@
       // Réinitialiser la hauteur quand on revient au-dessus de l'image
       heightPercentage = 0;
     }
-    /*     console.log(scrollPos, imgTopOffset);
-    console.log(heightPercentage); */
+    console.log(scrollPos, imgTopOffset);
+    console.log(heightPercentage);
   };
 
   onMount(() => {
-    updateMargins(); // Calcul initial des marges
-
     window.addEventListener('resize', updateMargins); // Met à jour les marges lors du redimensionnement
 
     const img = document.querySelector('#reseau'); // Sélection de l'image
@@ -63,6 +61,7 @@
     // Ajout de l'événement scroll
     window.addEventListener('scroll', updateHeightPercentage);
 
+    updateMargins(); // Calcul initial des marges
     // Nettoyage des listeners lors du démontage du composant
     return () => {
       window.removeEventListener('scroll', updateHeightPercentage);
