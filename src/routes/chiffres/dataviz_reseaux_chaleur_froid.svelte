@@ -20,8 +20,8 @@
     margins.left = rect.left;
     margins.right = window.innerWidth - rect.right;
     imgWidth = img ? img.clientWidth : 0; // Récupération de la largeur de l'image avec vérification de null
-    console.log(imgWidth);
-    console.log(margins);
+    /*    console.log(imgWidth);
+    console.log(margins); */
   };
 
   // Fonction pour ajuster la hauteur de la div en fonction du scroll
@@ -36,8 +36,8 @@
       // Réinitialiser la hauteur quand on revient au-dessus de l'image
       heightPercentage = 0;
     }
-    console.log(scrollPos, imgTopOffset);
-    console.log(heightPercentage);
+    /*     console.log(scrollPos, imgTopOffset);
+    console.log(heightPercentage); */
   };
 
   onMount(() => {
