@@ -19,7 +19,7 @@
 
   let data_mix = data.data_mix;
   const x = Object.keys(data_mix[0])[0]; // given d in data_mix, returns the (ordinal) x-value
-  const y = Object.keys(data_mix[0])[1]; // given d in data_mix, returns the (quantitative) y-value
+  const y = Object.keys(data_mix[0])[2]; // given d in data_mix, returns the (quantitative) y-value
   const xVals = data_mix.map((el) => el[x]);
   let yVals = data_mix.map((el) => Number(el[y]));
   if (percent) {
@@ -30,8 +30,7 @@
 
   // colors can be adjusted manually by creating a color array which length matches length of data_mix set.
   let colors;
-  if (!colors)
-    colors = quantize((t) => interpolatePlasma(t * 0.7 + 0.3), xVals.length);
+  colors = data_mix.map((el) => el.color);
 
   const wedges = pie()
     .padAngle(padAngle)

@@ -18,6 +18,19 @@
 
   export let selectedRegionData = {}; // Initialiser avec un objet vide
 
+  let colorArray = [
+    { label: 'Gaz naturel', color: '#FABF64' },
+    { label: 'Chaleur fatale - UVE', color: '#E57C33' },
+    { label: 'Biomasse', color: '#39AA4A' },
+    { label: 'Géothermie', color: '#EC6D6B' },
+    { label: 'Chaleur fatale - industrielle', color: '#e0a37b' },
+    { label: 'Autres EnR&R', color: '#77BD80' },
+    { label: 'Charbon', color: '#808080' },
+    { label: 'GOB', color: '#85ad8b' },
+    { label: 'Fiouls', color: '#DFDFDF' },
+    { label: 'Autres énergies fossiles', color: '#404040' },
+  ];
+
   // Fonction pour transformer les données en tableau d'objets {label, value}
   function transformDataToArray(data) {
     const keysToInclude = [
@@ -60,10 +73,11 @@
   $: iVals = data_mix.length > 0 ? data_mix.map((el, i) => i) : [];
 
   // Générer des couleurs pour les sections du graphique
-  let colors;
+  let colors = colorArray.map((item) => item.color);
+
   $: {
     if (xVals.length > 0) {
-      colors = quantize((t) => interpolatePlasma(t * 0.7 + 0.3), xVals.length);
+      colors = colorArray.map((item) => item.color);
     }
   }
 
@@ -75,6 +89,15 @@
         .padAngle(padAngle)
         .sort(null)
         .value((i) => yVals[i])(iVals);
+    }
+  }
+
+  $: {
+    if (yVals.length > 0) {
+      colors = data_mix.map((item) => {
+        const colorItem = colorArray.find((c) => c.label === item.label);
+        return colorItem ? colorItem.color : '#000000'; // Couleur par défaut si non trouvé
+      });
     }
   }
 

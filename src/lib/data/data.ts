@@ -25,16 +25,16 @@ export const data = {
         { chiffre: 75, label: 'Total taux d’EnR&R en 2030' },
     ],
     data_mix: [
-        { label: 'Gaz naturel', count: '9673.4' },
-        { label: 'Chaleur fatale - UVE', count: '9564.1' },
-        { label: 'Biomasse', count: '8114' },
-        { label: 'Géothermie', count: '1732.7' },
-        { label: 'Chaleur fatale - industrielle', count: '349' },
-        { label: 'Autres EnR&R', count: '865.5' },
-        { label: 'Charbon', count: '599.7' },
-        { label: 'GOB', count: '556.2' },
-        { label: 'Fiouls', count: '211.1' },
-        { label: 'Autres énergies fossiles', count: '209.5' }
+        { label: 'Gaz naturel', color:'#FABF64', count: '9673.4' },
+        { label: 'Chaleur fatale - UVE', color:'#E57C33', count: '9564.1' },
+        { label: 'Biomasse', color:'#39AA4A', count: '8114' },
+        { label: 'Géothermie', color:'#EC6D6B', count: '1732.7' },
+        { label: 'Chaleur fatale - industrielle', color:'#e0a37b', count: '349' },
+        { label: 'Autres EnR&R', color:'#77BD80', count: '865.5' },
+        { label: 'Charbon', color:'#808080', count: '599.7' },
+        { label: 'GOB', color:'#85ad8b', count: '556.2' },
+        { label: 'Fiouls', color:'#DFDFDF', count: '211.1' },
+        { label: 'Autres énergies fossiles', color:'#404040', count: '209.5' }
     ],
     empreinte_Carbone: [
         { foo: 200, bar: 2012, label: '200 gCO₂/kWh en 2012' },
