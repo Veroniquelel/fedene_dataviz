@@ -64,7 +64,7 @@
   onMount(() => {
     if (typeof window !== 'undefined') {
       width = window.innerWidth * 0.8;
-      height = window.innerHeight * 0.5;
+      height = window.innerHeight * 0.7;
 
       updateScales(); // Mise à jour des échelles
       createAxes(); // Création des axes

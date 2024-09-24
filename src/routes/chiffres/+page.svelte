@@ -159,14 +159,13 @@
     id="dataviz_part_des_reseaux"
     class="sticky"
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep >=
-      steps.length ||
-    currentStep == 3 ||
-    currentStep == undefined
-      ? 0
-      : 1};"
+      0 && currentStep < 3
+      ? 1
+      : 0}; transition: opacity 0.5s ease;"
   >
     Part des réseaux de chaleur dans la consommation de chaleur
   </h2>
+
   {#if currentStep != 3}
     <DatavizPartDesReseaux {currentStep} {steps} />
   {/if}
@@ -185,22 +184,18 @@
   <DatavizReseauxChaleurFroid {currentStep2} />
 
   <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
-  <!-- Le graphique en arrière-plan, qui est collé grâce au CSS ci-dessous -->
   <h2
     id="taux_energie_renouvelable"
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {(currentStep3 >=
-      3 &&
-      currentStep2 === undefined) ||
-    currentStep3 == undefined
-      ? 0
-      : 1};"
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep3 >=
+      0 && currentStep3 <= 2
+      ? 1
+      : 0}; transition: opacity 0.5s ease;"
   >
     Taux d’énergies renouvelables et de récupérations locales
   </h2>
 
   <Donut {currentStep3} />
-
   <!-- The scrolling container which includes each of the text elements -->
   <Scrolly bind:value={currentStep3}>
     {#each steps3 as text, i}
@@ -214,22 +209,22 @@
   <h2
     id="mix_energetique"
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {(currentStep4 >=
-      1 &&
-      currentStep3 === undefined) ||
-    currentStep4 == undefined
-      ? 0
-      : 1};"
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep4 >=
+      0 && currentStep4 < 1
+      ? 1
+      : 0}; transition: opacity 0.2s ease;"
   >
     Mix énergétique en 2022
   </h2>
-
-  <MixChart />
+  <div class="chartMix" class:fade={currentStep4 !== 0}>
+    <MixChart />
+  </div>
   <Scrolly bind:value={currentStep4}>
     {#each steps4 as text, i}
       <div class="step" class:active={currentStep4 === i}>
         <div class="step-content" style="opacity: {text === '' ? 0 : 1};">
           {@html text}
+          {currentStep4}
         </div>
       </div>
     {/each}
@@ -241,7 +236,7 @@
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep5 >=
       3 || currentStep5 === undefined
       ? 0
-      : 1};"
+      : 1}; transition: opacity 0.5s ease;"
   >
     Empreinte Carbone
   </h2>
@@ -263,7 +258,7 @@
     style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep6 >=
       1 || currentStep6 === undefined
       ? 0
-      : 1};"
+      : 1}; transition: opacity 0.5s ease;"
   >
     Secteurs de Livraison
   </h2>
@@ -280,10 +275,10 @@
   <h2
     id="taille_villes"
     class="sticky"
-    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep7 >=
-    steps7.length
+    style="position: sticky; top: 12%; z-index: 1000; text-align: center; opacity: {currentStep7 >
+    0
       ? 0
-      : 1};"
+      : 1}; transition: opacity 0.5s ease;"
   >
     Répartition sur la taille des villes
   </h2>
@@ -303,6 +298,20 @@
 </section>
 
 <style>
+  .chartMix {
+    transition: opacity 0.5s ease; /* Transition pour un effet de fondu */
+    height: 100dvh;
+    width: 98dvw;
+    top: 23%;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fade {
+    opacity: 0;
+  }
   /* Scrollytelling CSS */
   .step {
     height: 80vh;

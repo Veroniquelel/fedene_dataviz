@@ -145,9 +145,9 @@
       />
     {/each}
   </svg>
+  <!-- Tooltip qui s'affiche au survol -->
+  <div id="tooltip" class="tooltip"></div>
 </div>
-<!-- Tooltip qui s'affiche au survol -->
-<div id="tooltip" class="tooltip"></div>
 
 <style>
   .chart-container {

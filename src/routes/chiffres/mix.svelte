@@ -2,6 +2,7 @@
   import { quantize, interpolatePlasma, pie, arc } from 'd3';
   import { data } from '$lib/data/data'; // Importer les données
 
+  export let currentStep4;
   const width = 570; // the outer width of the chart, in pixels
   const height = width; // the outer height of the chart, in pixels
   const percent = true; // format values as percentages (true/false)
@@ -101,19 +102,22 @@
 
 <style>
   .chart-container {
+    height: 100dvh;
+    width: 98dvw;
+    top: 23%;
+    position: sticky;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   #mix {
-    width: 98dvw;
-    height: 50dvh;
-    position: sticky;
-    top: 23%;
+    width: 50%;
+    height: 50%;
+
     margin-top: 0;
     transform: translate(0%, 0%);
-    margin-bottom: 120px; /* Ajouter une marge pour séparer la légende du graphique */
+    margin-bottom: 50px; /* Ajouter une marge pour séparer la légende du graphique */
   }
 
   .legend {
