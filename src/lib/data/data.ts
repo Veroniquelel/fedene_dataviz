@@ -7,16 +7,16 @@ export const data = {
         taux_en_r_r_chaleur_totale: "Taux En R&R moyen : 23%",
         taux_en_r_r_energie_totale: "Taux En R&R moyen : 13,9%",
         position_valeur_energie_totale: [
-            { foo: 2.5, r: 1532, color: "#ED6E6E", energie_total_consommation_finale_totale: "Energie totale : 1532 TWh" },
-            { foo: 1.2, r: 213, color: "#0B7958", energie_total_consommation_finale_totale: "Energie totale : 213 TWh" },
+            { foo: 3, r: 1532, color: "#ED6E6E", energie_total_consommation_finale_totale: "Energie totale : 1532 TWh" },
+            { foo: 1.5, r: 213, color: "#0B7958", energie_total_consommation_finale_totale: "Energie totale : 213 TWh" },
         ],
         position_valeur_chaleur_totale: [
-            { foo: 2.5, r: 628, color: "#ED8C6E", chaleur_totale_consommation_finale_totale: "Chaleur totale : 628 TWh" },
-            { foo: 1.2, r: 144, color: "#30A884", chaleur_totale_consommation_finale_totale: "Chaleur totale : 144 TWh" },
+            { foo: 3, r: 628, color: "#ED8C6E", chaleur_totale_consommation_finale_totale: "Chaleur totale : 628 TWh" },
+            { foo: 1.5, r: 144, color: "#30A884", chaleur_totale_consommation_finale_totale: "Chaleur totale : 144 TWh" },
         ],
         position_valeur_reseau_de_chaleur: [
-            { foo: 2.5, r: 27, color: "#F8A5A5", reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 27 TWh" },
-            { foo: 1.2, r: 19, color: "#58D0AC", reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 19 TWh" },
+            { foo: 3, r: 27, color: "#F8A5A5", reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 27 TWh" },
+            { foo: 1.5, r: 19, color: "#58D0AC", reseau_de_chaleur_consommation_finale_totale: "Réseau de chaleur : 19 TWh" },
         ],
     },
     taux_en_R_R: [

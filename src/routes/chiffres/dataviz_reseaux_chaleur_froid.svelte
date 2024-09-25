@@ -3,7 +3,7 @@
 
   export let currentStep2;
 
-  let start = 1; // Valeur initiale
+  let start = 1; // Valeur initiale pour le calcul de la hauteur
   let heightPercentage = 0;
   let imgHeight = 0; // Hauteur de l'image
   let imgWidth = 0; // Largeur de l'image
@@ -18,7 +18,7 @@
       margins.bottom = rect.bottom * 0.1;
       margins.left = rect.left;
       margins.right = window.innerWidth - rect.right;
-      imgWidth = img.clientWidth || 0; // Récupération de la largeur de l'image avec vérification de null
+      imgWidth = img.clientWidth || 0; // Récupération de la largeur de l'image
     }
   };
 
@@ -26,12 +26,10 @@
   const updateHeightPercentage = () => {
     const scrollPos = window.scrollY;
     if (scrollPos >= imgTopOffset && imgHeight > 0) {
-      // Calculer le pourcentage uniquement lorsque le scroll dépasse l'image
       const relativeScroll = scrollPos - imgTopOffset;
       heightPercentage = Math.min(100, (relativeScroll / imgHeight) * 100);
     } else if (scrollPos < imgTopOffset) {
-      // Réinitialiser la hauteur quand on revient au-dessus de l'image
-      heightPercentage = 0;
+      heightPercentage = 0; // Réinitialiser la hauteur quand on revient au-dessus de l'image
     }
   };
 
@@ -78,7 +76,7 @@
 
 <div
   id="dataviz_reseaux_chaleur_froid"
-  style="display: flex; top:0; justify-content: center; align-items: center; position: relative; width: 100%; height: auto;"
+  style="display: flex; justify-content: center; align-items: center; position: relative; width: 100%; height: auto;"
 >
   <!-- Image SVG responsive -->
   <img
@@ -100,3 +98,41 @@
       2}px; z-index: -3; height: {heightPercentage + start}%;"
   ></div>
 </div>
+
+<style>
+  /* Style pour le conteneur et l'image SVG */
+  #dataviz_reseaux_chaleur_froid {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #reseau {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Styles pour les divs colorées */
+  .div-rouge,
+  .div-bleue {
+    position: absolute;
+    z-index: -3;
+  }
+
+  /* Responsive pour les petits écrans */
+  @media (max-width: 768px) {
+    #dataviz_reseaux_chaleur_froid {
+      width: 90%; /* Réduire la largeur à 90% */
+      margin: 0 auto; /* Centrer le conteneur */
+    }
+
+    #reseau {
+      max-width: 90%; /* Réduire la largeur de l'image */
+      height: auto;
+    }
+  }
+</style>
