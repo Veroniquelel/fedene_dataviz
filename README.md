@@ -43,7 +43,7 @@ npm run preview
 
 Pour déployer l'application, vous pourriez avoir besoin d'un adaptateur en fonction de votre environnement cible.
 
-Mise à jour des données
+**Mise à jour des données**
 L'ensemble de la donnée (chiffres, description et label) se trouve dans le fichier data/data.ts. 
 
 La donnée de la dataviz n°2 (sur les réseaux de chaleur et froid) doit être modifiée directement sur FIGMA puis exportée au format svg : https://www.figma.com/design/uXxs2dudJ5drojEbeIz4Lm/FEDENE?node-id=102-345&t=PXoTMBllLkiIsfTc-1
