@@ -49,9 +49,13 @@ L'ensemble de la donnée (chiffres, description et label) se trouve dans le fich
 
 La donnée de la dataviz n°2 (sur les réseaux de chaleur et froid) doit être modifiée directement sur FIGMA puis exportée au format svg : https://www.figma.com/design/uXxs2dudJ5drojEbeIz4Lm/FEDENE?node-id=102-345&t=PXoTMBllLkiIsfTc-1
 
+
 Structure du projet
+
 src/ : Contient tous les fichiers sources de l'application Svelte.
+
 styles/ : Feuilles de style SCSS et CSS.
+
 routes/ : Définition des pages et des routes de l'application.
 
 ```
