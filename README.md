@@ -41,7 +41,7 @@ npm run preview
 
 4. Déploiement
 
-Pour déployer l'application, vous pourriez avoir besoin d'un adaptateur en fonction de votre environnement cible.
+Pour déployer l'application, vous pourriez avoir besoin d'un adaptateur en fonction de votre environnement cible (cf: https://kit.svelte.dev/docs/adapters).
 
 **Mise à jour des données**
 
