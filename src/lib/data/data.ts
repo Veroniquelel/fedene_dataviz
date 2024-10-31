@@ -20,7 +20,7 @@ export const data = {
         ],
     },
     taux_en_R_R: [
-        { chiffre: 37.6, label: 'Total taux d’EnR&R en 2012' },
+        { chiffre: 37.6, label: 'Total taux d’EnR&R en 201' },
         { chiffre: 66.5, label: 'Total taux d’EnR&R en 2022' },
         { chiffre: 75, label: 'Total taux d’EnR&R en 2030' },
     ],
