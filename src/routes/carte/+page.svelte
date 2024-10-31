@@ -308,16 +308,16 @@
       </div>
     </div>
 
-    <!-- Deuxième row pour la production de chaleur EnR&R -->
-    <div class="row production-row">
-      <!-- Première sous-row pour le titre -->
+ <!-- Deuxième row pour la production de chaleur EnR&R -->
+    <!--   <div class="row production-row">
+
       <div class="subRowProd">
         <div class="row-title">
           <h4 class="chaud2" align="center">Production de chaleur EnR&R</h4>
         </div>
 
-        <!-- Deuxième sous-row pour le contenu -->
-        <div class="row-content">
+    
+           <div class="row-content">
           <div class="item">
             <img src="wood.svg" alt="Logo 1" class="logo2" />
             <p>{production.bois}</p>
@@ -330,9 +330,9 @@
             <img src="hydro.svg" alt="Logo 3" class="logo2" />
             <p>{production.hydro}</p>
           </div>
-        </div>
+        </div> 
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -449,11 +449,12 @@
 
   .gridChaud {
     border-color: #e75353;
+    height: 50%;
   }
 
   .gridFroid {
     border-color: #4aa6e0;
-    height: 100%;
+    height: 50%;
   }
 
   /* Colonne pour le mix énergétique */
