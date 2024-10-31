@@ -56,10 +56,10 @@ export const data = {
         { label: 'Industrie', bar: '6.4%', icon: 'industrie.svg' },
     ],
     repartition_villes: [{ label: "2000 réseaux petites villes", value: 2000 }, { label: "150 réseaux grandes villes", value: 150 }],
-    map_annee2022 :[
+    map_annee2023 :[
   {
     "Région": "Auvergne-Rhône-Alpes",
-    "Nombre réseaux": 199,
+    "Nombre réseaux": 200,
     "Dont % classés": 0.62,
     "Chaleur livrée GWh": 3586,
     "Taux EnR&R": 0.75,
