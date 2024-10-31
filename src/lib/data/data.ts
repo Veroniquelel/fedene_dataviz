@@ -56,7 +56,7 @@ export const data = {
         { label: 'Industrie', bar: '6.4%', icon: 'industrie.svg' },
     ],
     repartition_villes: [{ label: "2000 réseaux petites villes", value: 2000 }, { label: "150 réseaux grandes villes", value: 150 }],
-    map_annee2023 :[
+    map_annee2022 :[
   {
     "Région": "Auvergne-Rhône-Alpes",
     "Nombre réseaux": 200,
